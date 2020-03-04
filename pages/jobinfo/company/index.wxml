@@ -1,0 +1,58 @@
+<my-header title="单位详情" withBack bind:back="handleJumpBack" />
+<view class="container" style='border-top:solid 1px #CCCCCC'>
+  <form bindsubmit="formSubmit" class="wx-form">
+    <view class="job-cell">
+      <view class="line1">
+        <view class="companyname">{{Company.name}}</view>
+      </view>
+      <view class="line2">
+        <view class="span">单位性质：{{Company.unitperpory}}</view>
+      </view>
+      <view class="line2">
+        <view class="span">单位行业：{{Company.industry}}</view>
+      </view>
+      <view class="line2">
+        <view class="span">人员规模：{{Company.unitsize}}</view>
+      </view>
+      <view class="line2">
+        <view class="span">单位地址：{{Company.address}}</view>
+      </view>
+    </view>
+
+    <view class="spaceline"></view>
+
+    <view class="job-cell">
+      <view class="lineview">
+        <view class="jobcolumn">
+          <view class='title' style='width:50%'>岗位名称</view>
+          <view class='title' style='width:50%;text-align:right;'>薪资待遇(元/月)</view>
+        </view>
+      </view>
+    </view>
+    <view class="job-cell">
+      <view class="jobrow">
+        <view class='job' wx:for="{{Company.joblist}}" wx:key="{{navItems}}" data-route="/pages/jobinfo/detailed/index?job={{Company.jobidlist}}&idx={{index}}" bindtap="navToPage">
+          <view class="line2">
+            <view class="jobname">{{Company.joblist[index]}}</view>
+            <view class='salary'>{{Company.salary[index]}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <view class="spaceline"></view>
+
+    <view class="job-cell">
+      <view class="title">单位简介</view>
+    </view>
+
+    <view class="job-cell">
+      <view class="jobdesc">
+        <view class="rich-text-wrp">
+          <rich-text nodes="{{Company.desc}}"></rich-text>
+        </view>
+      </view>
+    </view>
+  </form>
+
+</view>

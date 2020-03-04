@@ -1,0 +1,6 @@
+<view class="header" style="opacity: {{ headerOpacity }}">
+    <image class="background" src="../../assets/header.png" />
+    <van-icon wx:if="{{ withBack }}" name="arrow-left" bind:tap="handleJumpBack" />
+    <slot wx:else />
+    <text class="title">{{ title }}</text>
+  </view>

@@ -1,0 +1,103 @@
+<my-header title="求职意向" withBack bind:back="handleJumpBack" />
+<view class="container" style='background-color:#eeeeee'>
+  <form bindsubmit="formSubmit" class="wx-form" report-submit="true">
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">工作类型:</view>
+        </view>
+        <view class="weui-cell__bd">
+          <view class="wx-cell2">
+            <picker name="WorkKind" bindchange="WorkKindPickerChange" value="{{WorkKindindex}}" range="{{objectWorkKindArray}}" range-key="{{'name'}}" style="width:100%;">
+              <view class="weui-picker">
+                {{objectWorkKindArray[WorkKindindex].name}}
+              </view>
+            </picker>
+            <image class="wx-cell-arrow2" src="/assets/right-gray.png"></image>
+          </view>
+        </view>
+      </view>
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">单位性质:</view>
+        </view>
+        <view class="weui-cell__bd">
+          <view class="wx-cell2" data-route="muliselect/index?kind=1&gid={{gid}}&val={{UnitProperty}}" bindtap="navToPage">
+            <text class="wx-cell-text" style="text-overflow:ellipsis;overflow:hidden;">{{UnitPropertyStr}}</text>
+            <image class="wx-cell-arrow2" src="/assets/right-gray.png"></image>
+          </view>
+        </view>
+      </view>
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">单位行业:</view>
+        </view>
+        <view class="weui-cell__bd">
+          <view class="wx-cell2" data-route="muliselect/index?kind=2&gid={{gid}}&val={{Industry}}" bindtap="navToPage">
+            <text class="wx-cell-text" style="text-overflow:ellipsis;overflow:hidden;">{{IndustryStr}}</text>
+            <image class="wx-cell-arrow2" src="/assets/right-gray.png"></image>
+          </view>
+        </view>
+      </view>
+
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">工作地点:</view>
+        </view>
+        <view class="weui-cell__bd">
+          <view class="wx-cell2" data-route="muliselect/index?kind=3&gid={{gid}}&val={{JobCity}}" bindtap="navToPage">
+            <text class="wx-cell-text" style="text-overflow:ellipsis;overflow:hidden;">{{JobCityStr}}</text>
+            <image class="wx-cell-arrow2" src="/assets/right-gray.png"></image>
+          </view>
+        </view>
+      </view>
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">从事职业:</view>
+        </view>
+        <view class="weui-cell__bd">
+          <view class="wx-cell2" data-route="jobpost/index" bindtap="navToPage">
+            <text class="wx-cell-text" style="text-overflow:ellipsis;overflow:hidden;">{{JobPostStr}}</text>
+            <image class="wx-cell-arrow2" src="/assets/right-gray.png"></image>
+          </view>
+        </view>
+      </view>
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">薪资待遇:</view>
+        </view>
+        <view class="weui-cell__bd">
+          <view class="wx-cell2">
+            <picker name="Salary" bindchange="SalaryPickerChange" value="{{Salaryindex}}" range="{{objectSalaryArray}}" range-key="{{'name'}}" style="width:100%;">
+              <view class="weui-picker">
+                {{objectSalaryArray[Salaryindex].name}}
+              </view>
+            </picker>
+            <image class="wx-cell-arrow2" src="/assets/right-gray.png"></image>
+          </view>
+        </view>
+      </view>
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">专业匹配:</view>
+        </view>
+        <view class="weui-cell__bd">
+          <view class="wx-cell2">
+            <picker name="AcceptOther" bindchange="AcceptOtherPickerChange" value="{{AcceptOtherindex}}" range="{{objectAcceptOtherArray}}" range-key="{{'name'}}" style="width:100%;">
+              <view class="weui-picker">
+                {{objectAcceptOtherArray[AcceptOtherindex].name}}
+              </view>
+            </picker>
+            <image class="wx-cell-arrow2" src="/assets/right-gray.png"></image>
+          </view>
+        </view>
+      </view>
+
+    </view>
+    <view class="weui-btn-area">
+      <button formType="submit" type="primary">保存</button>
+    </view>
+
+  </form>
+
+</view>

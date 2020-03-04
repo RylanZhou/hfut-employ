@@ -1,0 +1,97 @@
+<scroll-view 
+  scroll-y="{{true}}"
+  bindscroll="handlePageScroll"
+  bindscrolltolower="handlePageScrollToLower"
+  enable-back-to-top
+  class="page-container">
+  <image class="banner" src="../../assets/banner.png" />
+  <my-header title="招聘信息" headerOpacity="{{ headerOpacity }}">
+    <image src="../../assets/logo.png" />
+  </my-header>
+  <view class="fix-top" style="position: {{ fixTopPosition }}">
+    <view class="search-form">
+      <van-search 
+        class="search"
+        value="{{ key }}" 
+        placeholder="请输入搜索内容" 
+        bind:change="handleSearchInput"
+      />
+      <button class="button" bindtap="handleSearch">搜索</button>
+    </view>
+    <view class="placeholder" />
+  </view>
+  <view 
+    class="employment-list" 
+    style="margin-top: {{ employmentListMarginTop }}rpx">
+    <employ-item 
+      wx:for="{{ jobList }}" 
+      wx:for-index="index" 
+      wx:key="index" 
+      wx:for-item="item" 
+      data="{{ item }}" 
+      index="{{ index }}"
+      bind:on-detail="handleGoToDetail"
+    />
+    <view wx:if="{{ isLoadingMoreItems }}" class="bottom loading">
+      <van-loading color="#ba2d34" />
+    </view>
+    <van-toast id="van-toast" />
+  </view>
+  <view wx:if="{{ noMore }}" class="bottom no-more">
+    没有更多了
+  </view>
+</scroll-view>
+<!-- <view class='page_row'>
+  <view class="search">
+    <view class="df search_arr">
+      <icon class="searchcion" size='20' type='search'></icon>
+      <input class="" placeholder="请输入关键字" bindinput="keyInput" />
+    </view>
+  </view>
+  <view class='sousuo' bindtap='search'>搜索</view>
+</view>
+<scroll-view scroll-y="true" class="content" bindscrolltoupper="pullDownRefresh" bindscrolltolower="pullUpLoad">
+  <view wx:if="{{acount==0}}" style="margin-top:40px;">
+    <view class="none">暂无可加载内容</view>
+  </view>
+  <view wx:elif="{{acount>0}}" style="margin-top:40px;">
+    <view class='joblist' wx:for="{{JobInfo.jobname}}" wx:key="navItems" data-route="detailed/index?job={{JobInfo.jobid}}&idx={{index}}" bindtap="navToPage">
+      <view class="jobinfo">
+        <view class="jobleft">
+          <image src="{{JobInfo.LogoUrl[index]}}"></image>
+        </view>
+        <view class="jobright">
+          <view class="jobname">{{index+1}}※{{JobInfo.jobname[index]}}</view>
+          <view class="company">{{JobInfo.company[index]}}</view>
+          <view class='salary'>薪资：{{JobInfo.salary[index]}}</view>
+        </view>
+      </view>
+      <view class='jobaddtion'>
+        <view>{{JobInfo.jobaddtion[index]}}</view>
+      </view>
+      <view class='jobaddtion'>
+        <view>专业要求：{{JobInfo.discipline[index]}}</view>
+      </view>
+      <view class='jobaddtion2'>
+        <view class='jobaddtion2left'>发布日期：{{JobInfo.date[index]}}</view>
+        <view class='jobaddtion2right'>点击次数：{{JobInfo.clickcount[index]}}</view>
+      </view>
+    </view>
+  </view>
+  <view class="weui-loadmore" hidden="{{isHideLoadMore}}">
+    <view class="weui-loading" hidden="{{isHideLoading}}"></view>
+    <view class="weui-loadmore__tips">{{LoadMore}}</view>
+  </view>
+</scroll-view> -->
+
+<!-- LogoUrl: "http://store/wxa843f9f8a134336f.o6zAJs365qghcrp0Ken6fEcGpIqk.wlIP13qvcxgI3f03b75ad4166a667fc11f3987edf6b8.png"
+cid: "4484"
+clickcount: "58"
+code: "10359"
+company: "中交第二公路工程局有限公司"
+date: "2020-03-02"
+discipline: "土木工程，土木工程(道路与桥梁工程)，土木工程(岩土与地下工程)，城市地下空间工程，测绘工程，安全工程，工程造价"
+jobaddtion: "西安市 | 本科"
+jobid: "80468"
+jobname: "施工员"
+salary: "7000-10000元/月" -->

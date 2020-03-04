@@ -1,0 +1,66 @@
+.page-container {
+  height: 100vh;
+}
+
+.banner {
+  width: 750rpx;
+  height: 487rpx;
+}
+
+.fix-top {
+  position: none;
+  z-index: 100;
+  top: 180rpx;
+  width: 750rpx;
+  background-color: #fff;
+}
+
+.fix-top .placeholder {
+  height: 20rpx;
+  background-color: #eee;
+}
+
+.search-form {
+  display: flex;
+  align-items: center;
+  margin-top: 20rpx;
+}
+
+.search-form .search {
+  display: inline-block;
+  width: 600rpx;
+}
+
+.search-form .button {
+  flex-grow: 1;
+  display: inline-block;
+  vertical-align: middle;
+  height: 34px;
+  line-height: 34px;
+  margin-right: 24rpx;
+  border-radius: 4rpx;
+  font-size: 28rpx;
+  color: white;
+  background-color: #ba2d34;
+}
+
+.search-form .button:active {
+  background-color: #832529;
+}
+
+.search-form .button::after {
+  border: none;
+}
+
+.employment-list {
+  background-color: #eee;
+}
+
+.bottom {
+  padding: 36rpx 0;
+  text-align: center;
+}
+
+.bottom.no-more {
+  color: #ccc;
+}

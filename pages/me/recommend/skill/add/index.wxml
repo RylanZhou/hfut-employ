@@ -1,0 +1,67 @@
+<view class="container">
+  <form bindsubmit="formSubmit" class="wx-form">
+    <view class="weui-cells weui-cells_after-title">
+
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">证书名称:</view>
+        </view>
+        <view class="weui-cell__bd">
+          <input name="Caption" class="weui-input" value="{{caption}}" maxlength='50' focus="true"  />
+        </view>
+      </view>
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">获得时间:</view>
+        </view>
+        <view class="weui-cell__bd">
+          <picker mode="date" name="GetDate" fields="month" value="{{getdate}}" bindchange="bindDateChange1">
+            <view class="weui-picker">{{getdate}}
+            </view>
+          </picker>
+        </view>
+      </view>
+
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">证书类别:</view>
+        </view>
+        <view class="weui-cell__bd">
+          <picker name="SkillKind" bindchange="SkillKindPickerChange" value="{{Skillkindindex}}" range="{{objectSkillkindArray}}" range-key="{{'name'}}">
+            <view class="weui-picker">
+              {{objectSkillkindArray[Skillkindindex].name}}
+            </view>
+          </picker>
+        </view>
+      </view>
+
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">颁发机构:</view>
+        </view>
+        <view class="weui-cell__bd">
+          <input name="Department" class="weui-input" value="{{department}}" maxlength='50' />
+        </view>
+      </view>
+      
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">证书编号:</view>
+        </view>
+        <view class="weui-cell__bd">
+          <input name="Number" class="weui-input" value="{{number}}" maxlength='25' />
+        </view>
+      </view>
+
+
+    </view>
+    <view class="weui-btn-area">
+      <button bindtap="addNext" formType="submit">保存并添加下一个</button>
+    </view>
+    <view class="weui-btn-area">
+      <button bindtap="addExit" type="primary" formType="submit">保存并返回</button>
+    </view>
+
+  </form>
+
+</view>

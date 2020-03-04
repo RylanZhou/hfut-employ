@@ -1,0 +1,63 @@
+<my-header title="个人简历" withBack bind:back="handleJumpBack" />
+<view class="container">
+  <view class="wx-cells">
+    <view class="wx-cell-person">
+      <image class="wx-cell-icon user-avatar" src="{{src}}" bindtap="uploadphoto"></image>
+      <view class="user-info">
+        <text class="user-info-text">{{graduate.name}}</text>
+        <text class="user-info-text user-info-uid">{{graduate.college}}</text>
+        <text class="user-info-text user-info-uid">专业： {{graduate.disciplineName}}</text>
+        <text class="user-info-text user-info-uid">简历完整度：{{score}}%</text>
+      </view>
+    </view>
+  </view>
+  <view class="wx-block">
+    <view class="wx-cells">
+      <view class="wx-cell-line" data-route="basicinfo/index" bindtap="navToPage">
+        <image class="wx-cell-icon" src="/assets/icons/Mine/basic.png"></image>
+        <text class="wx-cell-text">基本资料</text>
+        <image class="wx-cell-arrow" src="/assets/right-gray.png"></image>
+      </view>
+      <view class="wx-cell" data-route="linkinfo/index" bindtap="navToPage">
+        <image class="wx-cell-icon" src="/assets/icons/Dispatch/linkinfo.png"></image>
+        <text class="wx-cell-text">本人及家庭联系方式</text>
+        <image class="wx-cell-arrow" src="/assets/right-gray.png"></image>
+      </view>
+    </view>
+  </view>
+  <view class="wx-block">
+    <view class="wx-cells">
+
+      <view class="wx-cell" data-route="/pages/me/intention/index" bindtap="navToPage">
+        <image class="wx-cell-icon" src="/assets/icons/Mine/join.png"></image>
+        <text class="wx-cell-text">求职意向</text>
+        <image class="wx-cell-arrow" src="/assets/right-gray.png"></image>
+      </view>
+    </view>
+  </view>
+  <view class="wx-block">
+    <view class="wx-cells">
+      <view class="wx-cell-line" data-route="educational/index" bindtap="navToPage">
+        <image class="wx-cell-icon" src="/assets/icons/Mine/xueli.png"></image>
+        <text class="wx-cell-text">教育背景</text>
+        <image class="wx-cell-arrow" src="/assets/right-gray.png"></image>
+      </view>
+
+      <view class="wx-cell-line" data-route="winning/index" bindtap="navToPage">
+        <image class="wx-cell-icon" src="/assets/icons/Mine/winning.png"></image>
+        <text class="wx-cell-text">获奖情况</text>
+        <image class="wx-cell-arrow" src="/assets/right-gray.png"></image>
+      </view>
+      <view class="wx-cell-line" data-route="experience/index" bindtap="navToPage">
+        <image class="wx-cell-icon" src="/assets/icons/Mine/hobby.png"></image>
+        <text class="wx-cell-text">在校经历</text>
+        <image class="wx-cell-arrow" src="/assets/right-gray.png"></image>
+      </view>
+      <view class="wx-cell" data-route="skill/index" bindtap="navToPage">
+        <image class="wx-cell-icon" src="/assets/icons/Mine/certificate.png"></image>
+        <text class="wx-cell-text">技能证书</text>
+        <image class="wx-cell-arrow" src="/assets/right-gray.png"></image>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,72 @@
+<my-header title="联系方式" withBack bind:back="handleJumpBack" />
+
+<view class="container" style='background-color:#eeeeee'>
+  <form bindsubmit="formSubmit" class="wx-form">
+    <view class="weui-cells__title_top">本人联系方式</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell_primary">
+          <view class="weui-label">联系电话:</view>
+        </view>
+        <view class="weui-cell__bd">
+          <input name="TelphoneSelf" type="number" class="{{Graduate.TelphoneSelf.ctrlclass}}" value="{{Graduate.TelphoneSelf.text}}" disabled="{{Graduate.TelphoneSelf.disabled}}" maxlength='30' />
+        </view>
+      </view>
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell_primary">
+          <view class="weui-label">电子邮箱:</view>
+        </view>
+        <view class="weui-cell__bd">
+          <input name="Email" class="{{Graduate.Email.ctrlclass}}" value="{{Graduate.Email.text}}" disabled="{{Graduate.Email.disabled}}" maxlength='50' />
+        </view>
+      </view>
+
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell_primary">
+          <view class="weui-label">QQ:</view>
+        </view>
+        <view class="weui-cell__bd">
+          <input name="IM" type="number" class="{{Graduate.IM.ctrlclass}}" value="{{Graduate.IM.text}}" disabled="{{Graduate.IM.disabled}}" maxlength='12' />
+        </view>
+      </view>
+
+    </view>
+       <view class="weui-cells__title_top">家庭联系方式</view>
+    <view class="weui-cells weui-cells_after-title">
+
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell_primary">
+          <view class="weui-label">家庭联系电话:</view>
+        </view>
+        <view class="weui-cell__bd">
+          <input name="Homephone" class="{{Graduate.Homephone.ctrlclass}}" value="{{Graduate.Homephone.text}}" disabled="{{Graduate.Homephone.disabled}}" maxlength='30' />
+        </view>
+      </view>
+
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell_primary">
+          <view class="weui-label">详细地址:</view>
+        </view>
+        <view class="weui-cell__bd">
+          <input name="HomeAddress" class="{{Graduate.HomeAddress.ctrlclass}}" value="{{Graduate.HomeAddress.text}}" disabled="{{Graduate.HomeAddress.disabled}}" maxlength='100' />
+        </view>
+      </view>
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell_primary">
+          <view class="weui-label">邮政编码:</view>
+        </view>
+        <view class="weui-cell__bd">
+          <input name="HomePost" type="number" class="{{Graduate.HomePost.ctrlclass}}" value="{{Graduate.HomePost.text}}" disabled="{{Graduate.HomePost.disabled}}" maxlength='6' />
+        </view>
+      </view>
+    </view>
+
+
+    <view class="weui-bar-bottom" hidden="{{Graduate.disabled}}">
+      <view class="weui-btn-area" style='width:100%;'>
+        <button class="submit-button" formType="submit" disabled="{{Graduate.disabled}}">保存</button>
+      </view>
+    </view>
+  </form>
+
+</view>

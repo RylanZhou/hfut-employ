@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "employ-item": "../../components/employ-item",
+    "my-header": "../../components/header"
+  }
+}

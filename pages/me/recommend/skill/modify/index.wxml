@@ -1,0 +1,59 @@
+<view class="container">
+  <form bindsubmit="formSubmit" class="wx-form">
+    <view class="weui-cells weui-cells_after-title">
+
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">获得时间:</view>
+        </view>
+        <view class="weui-cell__bd">
+          <picker mode="date" name="GetDate" fields="month" value="{{getdate}}" bindchange="bindDateChange1" disabled='{{disabled}}'>
+            <view class="weui-picker">{{getdate}}
+            </view>
+          </picker>
+        </view>
+      </view>
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">证书类别:</view>
+        </view>
+        <view class="weui-cell__bd">
+          <picker name="SkillKind" bindchange="SkillKindPickerChange" value="{{Skillkindindex}}" range="{{objectSkillkindArray}}" range-key="{{'name'}}" disabled='{{disabled}}'>
+            <view class="weui-picker">
+              {{objectSkillkindArray[Skillkindindex].name}}
+            </view>
+          </picker>
+        </view>
+      </view>
+
+      <view class="weui-cells__title_top">证书名称</view>
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+          <textarea name="Caption" class='weui-msg__text-area' placeholder="" value="{{caption}}" placeholder-class='placeholder-class' auto-height="true" style="min-height:50px;width:100%; margin:10px auto;" maxlength='25' disabled='{{disabled}}' />
+        </view>
+      </view>
+
+      <view class="weui-cells__title_top">颁发机构</view>
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+          <textarea name="Department" class='weui-msg__text-area' placeholder="" value="{{department}}" placeholder-class='placeholder-class' auto-height="true" style="min-height:50px;width:100%; margin:10px auto;" maxlength='50' disabled='{{disabled}}' />
+        </view>
+      </view>
+
+      <view class="weui-cells__title_top">证书编号</view>
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+          <textarea name="Number" class='weui-msg__text-area' placeholder="" value="{{number}}" placeholder-class='placeholder-class' auto-height="true" style="min-height:50px;width:100%; margin:10px auto;" maxlength='25' disabled='{{disabled}}' />
+        </view>
+      </view>
+
+
+    </view>
+
+    <view class="weui-btn-area" wx:if="{{disabled==false}}">
+      <button formType="submit" type="primary">保存</button>
+    </view>
+
+  </form>
+
+</view>

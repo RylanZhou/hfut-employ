@@ -1,0 +1,38 @@
+<view class="container">
+  <form bindsubmit="formSubmit" class="wx-form">
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">投诉原因:</view>
+        </view>
+        <view class="weui-cell__bd">
+          <picker name="Kind" bindchange="KindPickerChange" value="{{Kindindex}}" range="{{objectKindArray}}" range-key="{{'name'}}">
+            <view class="weui-picker">
+              {{objectKindArray[Kindindex].name}}
+            </view>
+          </picker>
+        </view>
+      </view>
+
+
+
+
+      <view class="weui-cells__title_top">投诉描述</view>
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <textarea name="Description" class='weui-msg__text-area' placeholder="" value="{{desc}}" placeholder-class='placeholder-class' maxlength='250' auto-height="true" style="min-height:200px;" />
+          </view>
+        </view>
+      </view>
+
+    </view>
+    <view class="weui-bar-bottom">
+      <view class="weui-btn-area" style="width:100%;">
+        <button type="primary" formType="submit">提交</button>
+      </view>
+    </view>
+
+  </form>
+
+</view>

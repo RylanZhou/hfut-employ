@@ -1,0 +1,37 @@
+<view class="employ-item">
+  <view class="detail" bind:tap="handleTapDetail">
+    详情
+  </view>
+  <view class="title">
+    {{ data.jobname }}
+  </view>
+  <view class="basic">
+    <view>
+      <van-icon name="notes-o" />
+      <text>{{ data.company }}</text>
+    </view>
+    <view>
+      <van-icon name="balance-pay" />
+      <text>{{ data.salary }}</text>
+    </view>
+    <view>
+      <van-icon name="underway-o" />
+      <text>{{ data.date }}</text>
+    </view>
+    <view>
+      <van-icon name="eye-o" />
+      <text>浏览：{{ data.clickcount }}次</text>
+    </view>
+  </view>
+  <view class="long-info">
+    <view>
+      <van-icon name="location-o" />
+      <text>{{ data.jobaddtion }}</text>
+    </view>
+    <view>
+      <van-icon name="send-gift-o" />
+      <text>{{ data.discipline }}</text>
+    </view>
+  </view>
+  <!-- <van-image class="image" src="{{data.LogoUrl}}" width="200" height="100" fit="contain" /> -->
+</view>

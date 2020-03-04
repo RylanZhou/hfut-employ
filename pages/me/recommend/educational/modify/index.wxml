@@ -1,0 +1,62 @@
+<view class="container">
+	<form bindsubmit="formSubmit" class="wx-form">
+		<view class="weui-cells weui-cells_after-title">
+			<view class="weui-cell weui-cell_input">
+				<view class="weui-cell__hd">
+					<view class="weui-label">学校名称:</view>
+				</view>
+				<view class="weui-cell__bd">
+					<input name="School" class="weui-input" value="{{school}}" maxlength='50' focus="true" />
+				</view>
+			</view>
+			<view class="weui-cell weui-cell_input">
+				<view class="weui-cell__hd">
+					<view class="weui-label">学历:</view>
+				</view>
+				<view class="weui-cell__bd">
+					<picker name="Education" bindchange="EducationPickerChange" value="{{educationindex}}" range="{{objectEducationArray}}" range-key="{{'name'}}">
+						<view class="weui-picker">
+							{{objectEducationArray[educationindex].name}}
+						</view>
+					</picker>
+				</view>
+			</view>
+			<view class="weui-cell weui-cell_input">
+				<view class="weui-cell__hd">
+					<view class="weui-label">学习时间（开始）:</view>
+				</view>
+				<view class="weui-cell__bd">
+					<picker mode="date" name="BeginFrom" fields="month" value="{{beginfrom}}" bindchange="bindDateChange1">
+						<view class="weui-picker">{{beginfrom}}
+						</view>
+					</picker>
+				</view>
+			</view>
+
+			<view class="weui-cell weui-cell_input">
+				<view class="weui-cell__hd">
+					<view class="weui-label">学习时间（结束）:</view>
+				</view>
+				<view class="weui-cell__bd">
+					<picker mode="date" name="EndTo" fields="month" value="{{endto}}" bindchange="bindDateChange2">
+						<view class="weui-picker">{{endto}}
+						</view>
+					</picker>
+				</view>
+			</view>
+
+			<view class="weui-cells__title_top">主修课程</view>
+			<view class="weui-cells weui-cells_after-title">
+				<view class="weui-cell weui-cell_input">
+					<textarea name="Description" auto-height="true" class='weui-msg__text-area' placeholder="" value="{{description}}" maxlength='250' style='min-height:60px;width:100%;margin:10px auto;' />
+					</view>
+			</view>
+        </view>
+
+    <view class="weui-btn-area" wx:if="{{disabled==false}}">
+      <button formType="submit" type="primary">保存</button>
+    </view>
+
+  </form>
+
+</view>

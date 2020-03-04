@@ -1,0 +1,68 @@
+<view class="container">
+  <form bindsubmit="formSubmit" class="wx-form">
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">经历类别:</view>
+        </view>
+        <view class="weui-cell__bd">
+          <picker name="Kind" bindchange="KindPickerChange" value="{{Kindindex}}" range="{{objectKindArray}}" range-key="{{'name'}}">
+            <view class="weui-picker">
+              {{objectKindArray[Kindindex].name}}
+            </view>
+          </picker>
+        </view>
+      </view>
+
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">在校经历:</view>
+        </view>
+        <view class="weui-cell__bd">
+          <input name="Caption" class="weui-input" value="{{caption}}" maxlength='25' />
+        </view>
+      </view>
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">开始时间:</view>
+        </view>
+        <view class="weui-cell__bd">
+          <picker mode="date" name="BeginFrom" fields="month" value="{{beginfrom}}" bindchange="bindDateChange1">
+            <view class="weui-picker">{{beginfrom}}
+            </view>
+          </picker>
+        </view>
+      </view>
+
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">结束时间:</view>
+        </view>
+        <view class="weui-cell__bd">
+          <picker mode="date" name="EndTo" fields="month" value="{{endto}}" bindchange="bindDateChange2">
+            <view class="weui-picker">{{endto}}
+            </view>
+          </picker>
+        </view>
+      </view>
+
+      <view class="weui-cells__title_top">简单描述</view>
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <textarea name="Description" class='weui-msg__text-area' placeholder="" value="{{desc}}" placeholder-class='placeholder-class' maxlength='250'  auto-height="true" style="min-height:100px;"/>
+          </view>
+        </view>
+      </view>
+
+    </view>
+    <view class="weui-btn-area">
+      <button bindtap="addNext" formType="submit">保存并添加下一个</button>
+    </view>
+    <view class="weui-btn-area">
+      <button bindtap="addExit" type="primary" formType="submit">保存并返回</button>
+    </view>
+
+  </form>
+
+</view>

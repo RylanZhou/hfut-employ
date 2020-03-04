@@ -1,0 +1,21 @@
+<my-header title="在校行为" withBack bind:back="handleJumpBack" />
+
+<view class="container" style='background-color:#eeeeee'>
+  <form bindsubmit="formSubmit" class="wx-form">
+
+    <view class="weui-cells__title_top">在校行为及表现</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="rich-text-wrp">
+            <rich-text nodes="{{Behaviour}}"></rich-text>
+          </view>
+        </view>
+      </view>
+    </view>
+
+
+
+  </form>
+
+</view>

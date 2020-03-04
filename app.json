@@ -1,0 +1,73 @@
+{
+  "pages": [
+    "pages/jobinfo/index",
+    "pages/jobinfo/detailed/index",
+    "pages/binduser/index",
+    "pages/jobinfo/company/index",
+    "pages/jobinfo/complaint/index",
+    "pages/activity/signin/index",
+    "pages/activity/signin/detailed/index",
+    "pages/me/index",
+    "pages/me/favorites/index",
+    "pages/me/apply/index",
+    "pages/me/notice/index",
+    "pages/me/notice/invitation/index",
+    "pages/me/matching/index",
+    "pages/me/config/index",
+    "pages/me/intention/index",
+    "pages/me/intention/muliselect/index",
+    "pages/me/intention/jobpost/index",
+    "pages/me/recommend/index",
+    "pages/me/recommend/basicinfo/index",
+    "pages/me/recommend/linkinfo/index",
+    "pages/me/recommend/educational/index",
+    "pages/me/recommend/winning/index",
+    "pages/me/recommend/experience/index",
+    "pages/me/recommend/skill/index",
+    "pages/me/recommend/winning/add/index",
+    "pages/me/recommend/winning/modify/index",
+    "pages/me/recommend/experience/add/index",
+    "pages/me/recommend/experience/modify/index",
+    "pages/me/recommend/skill/add/index",
+    "pages/me/recommend/skill/modify/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationStyle": "custom"
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "downloadFile": 10000
+  },
+  "usingComponents": {
+    "van-button": "@vant/weapp/button",
+    "van-search": "@vant/weapp/search",
+    "van-icon": "@vant/weapp/icon",
+    "van-loading": "@vant/weapp/loading",
+    "van-toast": "@vant/weapp/toast",
+    "van-cell": "@vant/weapp/cell",
+    "van-cell-group": "@vant/weapp/cell-group",
+    "van-image": "@vant/weapp/image"
+  },
+  "tabBar": {
+    "color": "#333",
+    "selectedColor": "#ba2d34",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/jobinfo/index",
+        "text": "职位信息",
+        "iconPath": "/assets/homepage.png",
+        "selectedIconPath": "/assets/homepage-selected.png"
+      },
+      {
+        "pagePath": "pages/me/index",
+        "text": "个人中心",
+        "iconPath": "/assets/user.png",
+        "selectedIconPath": "/assets/user-selected.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}

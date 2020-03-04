@@ -1,0 +1,39 @@
+<view class="container" style='background-color:#eeeeee'>
+  <form bindsubmit="formSubmit" class="wx-form">
+
+    <view class="weui-cells__title_top2"></view>
+    <view class="weui-cells weui-cells_after-title">
+
+      <view class="weui-cell weui-cell_input">
+
+        <view class="weui-cell__bd">
+          <picker name="college" bindchange="CollegePickerChange" value="{{Collegeindex}}" range="{{objectCollegeArray}}" range-key="{{'name'}}">
+            <view class="weui-picker" style='text-align:center'>
+              {{objectCollegeArray[Collegeindex].name}}
+            </view>
+          </picker>
+        </view>
+      </view>
+
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__bd">
+          <input name="name" class="weui-input" value="" maxlength='30' placeholder='填写姓名' style="text-align:center" />
+        </view>
+      </view>
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__bd">
+          <input name="studentnum" class="weui-input" value="" maxlength='30' placeholder='填写学号' style="text-align:center" />
+        </view>
+      </view>
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__bd">
+          <input name="idcode" type="idcard" class="weui-input" value="" maxlength='18' placeholder='填写身份证号' style="text-align:center" />
+        </view>
+      </view>
+    </view>
+    <view class="weui-btn-area">
+      <button class="submit-button" open-type="getUserInfo" formType="submit">登录</button>
+    </view>
+  </form>
+
+</view>

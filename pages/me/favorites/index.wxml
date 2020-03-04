@@ -1,0 +1,28 @@
+<!--content-->
+<my-header title="职位收藏夹" withBack bind:back="handleJumpBack" />
+<scroll-view scroll-y="true" class="content">
+  <view wx:if="{{acount==0}}">
+    <view class="none">暂无可加载内容</view>
+  </view>
+  <view wx:elif="{{acount>0}}">
+    <view class="joblist {{JobInfo.isTouchMove[index]? 'touch-move-active' : ''}}" wx:for="{{JobInfo.jobname}}" data-route="/pages/jobinfo/detailed/index?job={{JobInfo.jobid}}&idx={{index}}" bindtap="navToPage" bindtouchstart="touchstart" bindtouchmove="touchmove"  data-index="{{index}}" wx:key="{{navItems}}">
+      <view class="content">
+        <view class="jobinfo">
+          <view class="jobleft">
+            <image src="{{JobInfo.LogoUrl[index]}}"></image>
+          </view>
+          <view class="jobright">
+            <view class="jobname">{{index+1}}|{{JobInfo.jobname[index]}}</view>
+            <view class="company">{{JobInfo.company[index]}}</view>
+            <view class='salary'>薪资：{{JobInfo.salary[index]}}</view>
+          </view>
+        </view>
+        <view class='jobaddtion2'>
+          <view class='jobaddtion2left'>{{JobInfo.jobaddtion[index]}}</view>
+          <view class='jobaddtion2right'>收藏日期：{{JobInfo.date[index]}}</view>
+        </view>
+      </view>
+      <view class="del" catchtap="del" data-index="{{index}}" data-jid="{{JobInfo.jobid[index]}}">删除</view>
+    </view>
+  </view>
+</scroll-view>

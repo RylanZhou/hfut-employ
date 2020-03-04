@@ -1,0 +1,107 @@
+<scroll-view 
+  scroll-y
+  class="page-container"
+  enable-enable-back-to-top
+  bindtouchstart="handleTouchStart"
+  bindtouchend="handleTouchEnd">
+  <my-header title="职位详情" withBack bind:back="handleJumpBack" />
+
+	<view class="detail-body">
+    <van-cell-group title="基本信息">
+      <van-cell class="highlight red" icon="manager-o" title="招聘岗位" value="{{ info.name }}" />
+      <van-cell icon="cluster-o" title="职位类别" value="{{ info.post }}" />
+      <van-cell icon="friends-o" title="招聘人数" value="{{ info.count }}" />
+      <van-cell icon="location-o" title="工作地点" value="{{ info.city }}" />
+      <van-cell icon="star-o" title="学历要求" value="{{ info.education }}" />
+      <van-cell icon="star-o" title="专业要求" use-label-slot>
+        <text slot="label">{{ info.discipline }}</text>
+      </van-cell>
+      <van-cell icon="balance-pay" title="薪酬待遇" value="{{ info.salary }}" border="{{ false }}" />
+    </van-cell-group>
+
+		<van-cell-group title="岗位信息">
+      <van-cell icon="orders-o" title="岗位职责" use-label-slot>
+        <text slot="label">{{ info.desc }}</text>
+      </van-cell>
+      <van-cell icon="orders-o" title="任职要求" use-label-slot>
+        <text slot="label">{{ info.require }}</text>
+			</van-cell>
+			<van-cell icon="orders-o" title="福利待遇" use-label-slot>
+        <text slot="label">{{ info.benefits }}</text>
+      </van-cell>
+			<van-cell icon="orders-o" title="职业发展" use-label-slot border="{{ false }}">
+        <text slot="label">{{ info.future }}</text>
+      </van-cell>
+		</van-cell-group>
+
+		<van-cell-group title="单位信息">
+			<!-- TODO: Inc details? -->
+      <van-cell class="highlight blue" icon="notes-o" title="单位名称" value="{{ info.company }}" is-link bindtap="jumpToCompanyPage"/>
+      <van-cell icon="notes-o" title="单位性质" value="{{ info.unitperpory }}" />
+      <van-cell icon="friends-o" title="人员规模" value="{{ info.unitsize }}" />
+			<van-cell icon="cluster-o" title="单位行业" value="{{ info.industry }}" border="{{ false }}" />
+		</van-cell-group>
+
+		<van-cell-group title="联系方式">
+			<van-cell icon="user-o" title="联系人" value="{{ info.linker }}" />
+			<van-cell icon="phone-o" title="联系电话" value="{{ info.telephone }}" />
+		</van-cell-group>
+
+		<view class="warning">
+			<text class="title">温馨提示</text>
+			<text class="subtitle">各位同学在求职中提高警惕，凡涉及下列各种情况，要仔细辨别，谨防上当受骗。</text>
+			<text>1、收取各种费用；</text>
+			<text>2、仅电话面试就给出录取通知，且到外地就职/培训的招聘等情况；</text>
+			<text>3、详细打听家庭情况或个人借贷情况；</text>
+			<text>4、仅参加培训且收取费用，不是实际到该单位工作的。</text>
+			<text class="subtitle">一经发现可向平台或学校举报，情况核实后平台将其列入黑名单，禁止其进入全省高校。</text>
+		</view>
+  </view>
+
+	<view class="operations">
+		<view class="button {{info.apply ? 'applied' : 'apply'}}" bindtap="handleApplication">
+			{{ info.apply ? '已申请' : '申请职位' }}
+		</view>
+		<view class="button fav" bindtap="handleFavorite">
+			<van-icon wx:if="{{info.favorites}}" name="star" />
+			<van-icon wx:else name="star-o" />
+		</view>
+		<view class="button report" bindtap="jumpToReportPage">
+			<van-icon name="warn-o" />
+		</view>
+	</view>
+  <van-toast id="van-toast" />
+	<!-- 
+data-route="/pages/jobinfo/company/index?cid={{JOB.cid}}" bindtap="navToPage"
+data-route="/pages/jobinfo/complaint/index?cid={{JOB.cid}}&jid={{JOB.jobid}}
+		<view class="spaceline"></view>
+		<view class="job-cell" style="margin-bottom:80rpx">
+			<view class="line3">
+				<view class="jobleft">
+					<view class="weui-btn-area">
+						<button type="default" disabled='{{JOB.favorites}}' bindtap="favorites">{{JOB.favorites?"已收藏":"收藏"}}</button>
+					</view>
+				</view>
+				<view class="jobright" style='width:55%;'>
+					<view class="weui-btn-area">
+						<button type="primary" bindtap="jobapply" disabled='{{JOB.apply}}' class="form-view-button">
+							{{JOB.apply?"已申请":"申请职位"}}
+						</button>
+					</view>
+				</view>
+			</view>
+		</view>
+
+		<view class="weui-bar-bottom-touch">
+			<view style="width:42%;border-right:solid 1px #DEDEDE" bindtap='touch_prev'>
+				{{jidx==0?'返回列表':'上一个'}}（屏幕右划） </view>
+			<view style="width:16%;border-right:solid 1px #DEDEDE">
+				{{jidx+1}}/{{joblist.length}} </view>
+			<view style="width:42%" bindtap='touch_next'>
+				{{jidx==joblist.length-1?'这是最后一个':'下一个（屏幕左划）'}}
+			</view>
+		</view>
+
+	</form> -->
+
+</scroll-view>

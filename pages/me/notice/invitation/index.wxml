@@ -1,0 +1,38 @@
+<view class="container" style='background-color:#eeeeee'>
+  <form bindsubmit="formSubmit" class="wx-form" report-submit="true">
+
+    <view class="weui-cells__title" style="color:#000">接受邀请截止日期：
+      <label style="font-weight:bold;">{{endate}}</label>
+    </view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd" style="color:red;padding:10px 0;">
+          <view class="weui-memo" style="text-indent:2em;margin:5px auto;">
+            尊敬的
+            <label style="font-weight:bold; margin:auto 5px;text-decoration:underline;">{{graduate.name}}</label>同学：
+          </view>
+          <view class="weui-memo" style="text-indent:2em;margin:5px auto;">您好！
+          </view>
+          <view class="weui-memo" style="text-indent:2em;margin:5px auto;">很高兴通知您，{{applystate==2?'您能否参加我公司面试':'您已被我单位录用'}}，职位为
+            <label style="font-weight:bold;margin:auto 5px;text-decoration:underline;">{{jobname}}</label>。
+          </view>
+          <view class="weui-memo" style="text-indent:2em;margin:5px auto;">如果您愿意加入我们,请在此页面下栏点击【接受】。
+          </view>
+          <view class="weui-memo" style="text-indent:2em;margin:5px auto;">逾期不回复，本通知书自动失效。
+          </view>
+          <view class="weui-memo" style="text-indent:2em;margin:5px auto;">联系人：{{linker}}
+          </view>
+          <view class="weui-memo" style="text-indent:2em;margin:5px auto;">联系电话：{{telephone}}
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="weui-btn-area">
+      <button type="primary" formType="submit" disabled='{{disabled}}'>接受</button>
+    </view>
+    <view class="weui-btn-area">
+      <button type="warn" bindtap="refuse" disabled='{{disabled}}'>谢绝</button>
+    </view>
+  </form>
+
+</view>

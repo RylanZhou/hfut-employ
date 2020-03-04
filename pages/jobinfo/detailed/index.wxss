@@ -1,0 +1,107 @@
+.page-container {
+  position: relative;
+  box-sizing: border-box;
+  height: 100vh;
+  background-color: #eee;
+}
+
+.detail-body {
+  margin-top: 180rpx;
+  padding-bottom: 120rpx;
+}
+
+.van-cell__value {
+  min-width: 70%;
+}
+
+van-cell text {
+  transform: translateY(-100%);
+}
+
+.highlight .van-cell__value {
+  font-weight: bold;
+}
+
+.highlight.red .van-cell__value {
+  color: #ba2d34;
+}
+
+.highlight.blue .van-cell__value {
+  color: #2d65ba;
+}
+
+.warning {
+  padding: 32rpx;
+}
+
+.warning text {
+  display: block;
+  font-size: 24rpx;
+  color: #aaa;
+}
+
+.warning .title {
+  margin: 20rpx 0;
+  text-align: center;
+}
+
+.warning .subtitle {
+  margin: 20rpx 0;
+}
+
+.operations {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  height: 100rpx;
+  width: 750rpx;
+  border-top: 2rpx solid #ccc;
+  background-color: white;
+}
+
+.operations .button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.operations .apply,
+.operations .applied {
+  width: 60%;
+}
+
+.operations .applied {
+  color: #ccc;
+}
+
+.operations .fav {
+  position: relative;
+  flex: 1;
+  color: #f1c40f;
+  font-size: 40rpx;
+}
+
+.operations .fav::before,
+.operations .fav::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 2rpx;
+  height: 100rpx;
+  background-color: #ccc;
+}
+
+.operations .fav::before {
+  left: 0;
+}
+
+.operations .fav::after {
+  right: 0;
+}
+
+.operations .report {
+  flex: 1;
+  color: #ba2d2d;
+  font-size: 40rpx;
+}

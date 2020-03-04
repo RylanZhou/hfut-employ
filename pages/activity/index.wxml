@@ -1,0 +1,75 @@
+<view class="container">
+	<view class="wx-block">
+		<view class="wx-cells">
+			<view class="wx-cell-line"  bindtap="clickFormView" data-route="bulletin/index">
+				<image class="wx-cell-icon" src="/assets/icons/Discovery/bulletin.png"></image>
+				<text class="wx-cell-text">招聘公告</text>
+				<image class="wx-cell-arrow" src="/assets/right-gray.png"></image>
+			</view>
+			<view class="wx-cell-line"  bindtap="clickFormView" data-route="jobinfo/index?kind=1">
+				<image class="wx-cell-icon" src="/assets/icons/Mine/experience.png"></image>
+				<text class="wx-cell-text">职位信息</text>
+				<image class="wx-cell-arrow" src="/assets/right-gray.png"></image>
+			</view>
+			<view class="wx-cell"  bindtap="clickFormView" data-route="jobinfo/index?kind=2">
+				<image class="wx-cell-icon" src="/assets/icons/Discovery/practice.jpg"></image>
+				<text class="wx-cell-text">实习信息</text>
+				<image class="wx-cell-arrow" src="/assets/right-gray.png"></image>
+			</view>
+		</view>
+	</view>
+	<view class="wx-block">
+		<view class="wx-cells">
+			<view class="wx-cell-line"  bindtap="clickFormView" data-route="jobfair/index" data-title="网络招聘会">
+				<image class="wx-cell-icon" src="/assets/icons/Discovery/market.png"></image>
+				<text class="wx-cell-text">网络招聘会</text>
+				<image class="wx-cell-arrow" src="/assets/right-gray.png"></image>
+			</view>
+			<view class="wx-cell"  bindtap="clickFormView" data-route="video/index" data-title="空中宣讲会">
+				<image class="wx-cell-icon" src="/assets/icons/Discovery/video.jpg"></image>
+				<text class="wx-cell-text">空中宣讲会</text>
+				<image class="wx-cell-arrow" src="/assets/right-gray.png"></image>
+			</view>
+		</view>
+	</view>
+	<view class="wx-block">
+		<view class="wx-cells">
+			<view class="wx-cell-line"  bindtap="tempclose" data-title="招聘日历" data-route="recruitment/calendar">
+				<image class="wx-cell-icon" src="/assets/icons/Discovery/date.png"></image>
+				<text class="wx-cell-text">招聘日历</text>
+			</view>
+			<view class="wx-cell"  bindtap="tempclose" data-title="专场招聘会" data-route="recruitment/whole">
+				<image class="wx-cell-icon" src="/assets/icons/Discovery/recruit.jpg"></image>
+				<text class="wx-cell-text">专场招聘会</text>
+			</view>
+		</view>
+	</view>
+	<!-- <view class="wx-block">
+		<view class="wx-cells">
+			<form bindtap="ClosedPage" data-route="/pages/dispatch/index">
+				<button form-type="submit" class="frombtn">
+					<view class="wx-cell" >
+						<image class="wx-cell-icon" src="/assets/icons/Discovery/db.png"></image>
+						<text class="wx-cell-text">就业创业资源库</text>
+					</view>
+				</button>
+			</form>
+		</view>
+	</view> -->
+	<view class="wx-block">
+		<view class="wx-cells">
+			<view class="wx-cell-line"  bindtap="navToPage" data-route="question/index">
+				<image class="wx-cell-icon" src="/assets/icons/Discovery/question.png"></image>
+				<text class="wx-cell-text">问卷调查</text>
+				<image class="wx-cell-arrow" src="/assets/right-gray.png"></image>
+			</view>
+
+			<view class="wx-cell"  bindtap="navToPage" data-route="signin/index">
+				<image class="wx-cell-icon" src="/assets/icons/Discovery/sign.png"></image>
+				<text class="wx-cell-text">实习签到</text>
+				<image class="wx-cell-arrow" src="/assets/right-gray.png"></image>
+			</view>
+		</view>
+	</view>
+
+</view>

@@ -1,0 +1,29 @@
+<!--contentnavToPage-->
+
+<scroll-view scroll-y="true" class="content" style="height: {{windowHeight}}px; width: {{windowWidth}}px;">
+  <view class='job' wx:for="{{Weekly.Order}}" data-route="detailed/index?sid={{Weekly.Order[index]}}&opter={{Weekly.Opter[index]}}" bindtap="{{Weekly.bindtap[index]}}">
+    <view class="jobinfo">
+      <view class="{{Weekly.Class[index]}}">
+        第{{Weekly.Order[index]}}次
+      </view>
+      <view class="jobright">
+        <view class="space"></view>
+        <view class="week">
+          <view class="row1">
+            <view class="data">
+             {{Weekly.Begin[index]}}
+            </view>
+            <view class="space2">
+            </view>
+            <view class="data">
+             {{Weekly.End[index]}}
+            </view>
+          </view>
+          <view class="{{Weekly.SignClass[index]}}">
+            {{Weekly.Sign[index]}}
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</scroll-view>

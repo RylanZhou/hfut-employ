@@ -1,0 +1,20 @@
+<my-header title="设置" withBack bind:back="handleJumpBack" />
+<view class="container" style='background-color:#eeeeee'>
+  <form bindsubmit="formSubmit" class="wx-form">
+    <view class="wx-block">
+      <view class="wx-cells">
+        <view class="wx-cell">
+          <button bindtap="ClearImgStorage">清理图片缓存</button>
+        </view>
+      </view>
+    </view>
+
+    <view class="wx-block">
+      <view class="wx-cells">
+         <view class="wx-cell">
+          <button bindtap="Unbind" open-type='exit'>解除账号绑定</button>
+        </view>
+      </view>
+    </view>
+  </form>
+</view>

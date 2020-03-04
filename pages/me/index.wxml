@@ -1,0 +1,61 @@
+<my-header title="个人中心">
+  <image src="../../assets/logo.png" />
+</my-header>
+
+<view class="container">
+  <view class="wx-cells">
+    <view class="wx-cell-person" data-route="recommend/index"  data-msgkind="0" bindtap="navToPage">
+      <image class="wx-cell-icon user-avatar" src="{{avatarUrl}}"></image>
+      <view class="user-info">
+        <text class="user-info-text">{{nickName}}</text>
+        <text class="user-info-text user-info-uid">简历(就业推荐表)</text>
+      </view>
+      <image class="wx-cell-arrow" src="/assets/right-gray.png"></image>
+    </view>
+  </view>
+
+  <view class="wx-block">
+    <view class="wx-cells">
+      <view class="wx-cell-line" data-route="notice/index" data-msgkind="0" bindtap="navToPage">
+        <image class="wx-cell-icon" src="/assets/icons/Mine/notice.png"></image>
+        <text class="wx-cell-text">面试和签约通知</text>
+        <image class="wx-cell-arrow" src="/assets/right-gray.png"></image>
+      </view>
+      <view class="wx-cell-line" data-route="matching/index" data-msgkind="0" bindtap="navToPage">
+        <image class="wx-cell-icon" src="/assets/icons/Discovery/job.jpg"></image>
+        <text class="wx-cell-text">求职意向职位</text>
+        <image class="wx-cell-arrow" src="/assets/right-gray.png"></image>
+      </view>
+      <view class="wx-cell-line" data-route="apply/index" data-msgkind="0" bindtap="navToPage">
+        <image class="wx-cell-icon" src="/assets/icons/Mine/history.png"></image>
+        <text class="wx-cell-text">职位申请记录</text>
+        <image class="wx-cell-arrow" src="/assets/right-gray.png"></image>
+      </view>
+      <view class="wx-cell" data-route="favorites/index" data-msgkind="0" bindtap="navToPage">
+        <image class="wx-cell-icon" src="/assets/icons/Mine/icon5.png"></image>
+        <text class="wx-cell-text">职位收藏夹</text>
+        <image class="wx-cell-arrow" src="/assets/right-gray.png"></image>
+      </view>
+    </view>
+  </view>
+
+  <view class="wx-block">
+    <view class="wx-cells">
+      <view class="wx-cell" data-route="config/index"   data-msgkind="1" bindtap="navToPage">
+        <image class="wx-cell-icon" src="/assets/icons/Mine/setting.png"></image>
+        <text class="wx-cell-text">设置</text>
+        <image class="wx-cell-arrow" src="/assets/right-gray.png"></image>
+      </view>
+    </view>
+  </view>
+  
+  <view class="wx-block" wx:if="{{avatarUrl==''}}">
+    <view class="wx-cells">
+      <view class="wx-cell">
+        <button open-type="getUserInfo" bindgetuserinfo="onGotUserInfo" class="qbtn">获取用户头像授权</button>
+      </view>
+    </view>
+  </view>
+  
+
+</view>

@@ -1,0 +1,29 @@
+<my-header title="个人技能" withBack bind:back="handleJumpBack" />
+
+<view class="container" style="margin-bottom:80px;">
+  <view class="list {{isTouchMove[index]? 'touch-move-active' : ''}}" wx:for="{{id}}" bindtouchstart="touchstart" bindtouchmove="touchmove" data-index="{{index}}" wx:key="navItems">
+    <view class="content">
+      <view class='education' bindtap="viewfun" data-eduindex="{{id[index]}}">
+        <view class="title" bindtap="viewfun" data-eduindex="{{id[index]}}">
+          {{caption[index]}}
+        </view>
+        <view class="contentinfo" bindtap="viewfun" data-eduindex="{{id[index]}}">
+          获得时间： {{getdate[index]}}
+        </view>
+      </view>
+    </view>
+    <view class='tools'>
+      <view class="modify" catchtap="modifyfun" data-eduindex="{{id[index]}}">
+        修改
+      </view>
+      <view class="del" catchtap="deletefun" data-index="{{index}}" id="{{id[index]}}">
+        删除
+      </view>
+    </view>
+  </view>
+</view>
+<view class="weui-bar-bottom">
+   <view class="weui-btn-area" style='width:100%;'>
+    <button bindtap="addnew" class="submit-button">添加</button>
+  </view>
+</view>

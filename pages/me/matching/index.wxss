@@ -1,0 +1,30 @@
+@import '../../activity/index.wxss';
+.container {
+  margin-top: 180rpx;
+}
+
+.weui-bar-bottom-touch {
+  position: fixed;
+  _position: absolute;
+  bottom: 0rpx;
+  width: 100%;
+  text-align: center;
+  background-color: #efefef;
+  z-index: 1000;
+  display: flex;
+  flex-direction: row;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 30rpx;
+  border-top: solid 1px #aaa;
+}
+
+.form-view-button {
+  background: none !important;
+  color: #000 !important;
+  border: none;
+  font-size: 32rpx;
+}
+.form-view-button::after {
+  border: none;
+}

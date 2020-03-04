@@ -1,0 +1,129 @@
+@import '../../../weui.wxss';
+
+/*content*/
+
+.content {
+  padding-top: 0rpx;
+  background-color: #fff;
+}
+
+.job {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  margin: 20rpx;
+  border-top: solid 1px #ccc;
+  border-bottom: solid 1px #ccc;
+  background-color: #eee;
+}
+
+.jobinfo {
+  display: flex;
+  padding: 0rpx;
+  flex-direction: row;
+}
+
+.signed {
+  display: block;
+  float: left;
+  width: 20%;
+  background-image: url("http://yun.ahbys.com/Images/signed.png");
+  background-size:cover; 
+  padding-top: 5px;
+  text-align: center;
+}
+.unsigned {
+  display: block;
+  float: left;
+  width: 20%;
+  background-image: url("http://yun.ahbys.com/Images/unsigned.png");
+  background-size:cover; 
+  padding-top: 5px;
+  text-align: center;
+}
+.signnull
+{
+  display: block;
+  float: left;
+  width: 20%;
+  background-image: url("http://yun.ahbys.com/Images/signnull.png");
+  background-size:cover; 
+  padding-top: 5px;
+  text-align: center;
+}
+
+.jobright {
+  align-items: stretch;
+  width: 80%;
+  padding:0px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+
+
+.week {
+  display: flex;
+  flex-direction: column;
+  width:100%;
+  font-size:32rpx;
+}
+
+.week .row1 {
+  display: flex;
+  flex-direction: row;
+  width:100%;
+  border-bottom: solid 1px #ccc;
+}
+
+.week .row1 .data {
+  height: 80rpx;
+  line-height: 80rpx;
+  width:50%;
+  text-align: center;
+}
+
+.week .signedrow {
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+}
+.week .overduerow {
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  color:#666;
+}
+
+
+
+.weekicon {
+  float: right;
+  font-size: 35rpx;
+  width: 10%;
+  text-align: center;
+  height: 160rpx;
+  line-height: 160rpx;
+}
+
+
+
+.weekicon image {
+  width: 80%;
+  height: 40%;
+  border: none;
+}
+
+.space {
+  float: left;
+  width: 1px;
+  background-color: #ddd;
+}
+.space2 {
+  float: left;
+  width: 1px;
+  background-color: #ddd;
+  margin: 3px;
+}

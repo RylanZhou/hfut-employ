@@ -1,0 +1,106 @@
+<view class="container" style='background-color:#eeeeee'>
+
+  <form bindsubmit="formSubmit" class="wx-form">
+    <view class="weui-cells__title">请同学认真填写下列每项内容</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd" style="color:red">
+          <view class="weui-memo">1、实习签到每周一次，可在一周内任何一天签到；</view>
+          <view class="weui-memo">2、逾期不可重签。</view>
+        </view>
+      </view>
+    </view>
+
+    <view class="weui-cells__title_top2">实习信息</view>
+    <view class="weui-cells weui-cells_after-title">
+
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell_primary">
+          <view class="weui-label">实习途径:</view>
+        </view>
+        <view class="weui-cell__bd">
+          <picker name="FromKind" bindchange="FromKindPickerChange" value="{{FromKindindex}}" range="{{objectFromKindArray}}" range-key="{{'name'}}">
+            <view class="weui-picker">
+              {{objectFromKindArray[FromKindindex].name}}
+            </view>
+          </picker>
+        </view>
+      </view>
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell_primary">
+          <view class="weui-label">住宿情况:</view>
+        </view>
+        <view class="weui-cell__bd">
+          <picker name="LiveIn" bindchange="LiveInPickerChange" value="{{LiveInindex}}" range="{{objectLiveInArray}}" range-key="{{'name'}}">
+            <view class="weui-picker">
+              {{objectLiveInArray[LiveInindex].name}}
+            </view>
+          </picker>
+        </view>
+      </view>
+
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell_primary">
+          <view class="weui-label">单位所在地:</view>
+        </view>
+        <view class="weui-cell__bd">
+          <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}" range-key="{{'name'}}">
+            <view class="weui-picker">
+              {{DistrictName}}
+            </view>
+          </picker>
+        </view>
+      </view>
+
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell_primary">
+          <view class="weui-label">单位名称:</view>
+        </view>
+        <view class="weui-cell__bd">
+          <input name="UnitName" class="weui-input" value="{{UnitName}}" maxlength='50' />
+        </view>
+      </view>
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell_primary">
+          <view class="weui-label">联系人:</view>
+        </view>
+        <view class="weui-cell__bd">
+          <input name="Linker" class="weui-input" value="{{Linker}}" maxlength='50' />
+        </view>
+      </view>
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell_primary">
+          <view class="weui-label">联系人电话:</view>
+        </view>
+        <view class="weui-cell__bd">
+          <input name="Mobile" class="weui-input" value="{{Mobile}}" maxlength='50' />
+        </view>
+      </view>
+    </view>
+    <view class="weui-cells__title_top2">岗位描述(不少于20汉字)</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <textarea name="Post" class='weui-msg__text-area' placeholder="简要描述自己的岗位职责、工作内容以及工作小结等。" value="{{Post}}" style="height:200px;" />
+        </view>
+      </view>
+    </view>
+    <view class="weui-cells__title_top2">辅导员评语</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd" name="Comment" style="height:100px;margin-bottom:80px;color:red">
+          {{Comment}}
+        </view>
+      </view>
+    </view>
+
+    <view class="weui-bar-bottom" hidden="{{hidden}}">
+      <view class="weui-btn-area">
+        <button formType="submit" type="primary">确认并保存</button>
+      </view>
+
+    </view>
+
+  </form>
+
+</view>

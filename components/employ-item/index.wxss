@@ -1,0 +1,61 @@
+.employ-item {
+  position: relative;
+  padding: 32rpx;
+  margin-bottom: 18rpx;
+  overflow: hidden;
+  background-color: #fff;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal;
+}
+
+.detail {
+  float: right;
+  padding: 4rpx;
+  font-size: 24rpx;
+  color: #ba2d34;
+}
+
+.basic {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 12rpx;
+  margin-top: 16rpx;
+}
+
+.basic,
+.long-info {
+  line-height: 40rpx;
+  font-size: 24rpx;
+  color: #aaa;
+}
+
+.basic view,
+.long-info view {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.basic van-icon,
+.long-info van-icon {
+  vertical-align: middle;
+  margin-right: 14rpx;
+}
+
+.basic text,
+.long-info text {
+  vertical-align: middle;
+}
+
+.image {
+  position: absolute;
+  bottom: 0;
+  right: -20rpx;
+  opacity: 0.1;
+}

@@ -1,0 +1,44 @@
+<view class="container">
+  <form bindsubmit="formSubmit" class="wx-form">
+    <view class="weui-cells weui-cells_after-title" style="margin-bottom:80px;">
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">获奖情况:</view>
+        </view>
+        <view class="weui-cell__bd">
+          <input name="Caption" class="weui-input" value="{{caption}}" maxlength='30' />
+        </view>
+      </view>
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">获奖时间:</view>
+        </view>
+        <view class="weui-cell__bd">
+          <picker mode="date" name="GetDate" fields="month" value="{{getdate}}" bindchange="bindDateChange1">
+            <view class="weui-picker">{{getdate}}
+            </view>
+          </picker>
+        </view>
+      </view>
+
+      <view class="weui-cells__title_top">获奖情况描述</view>
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <textarea name="Description" class='weui-msg__text-area' placeholder="" value="{{desc}}" placeholder-class='placeholder-class' maxlength='100'  auto-height="true" style="min-height:80px;" />
+          </view>
+        </view>
+      </view>
+
+    </view>
+
+    <view class="weui-btn-area">
+      <button bindtap="addNext" formType="submit">保存并添加下一个</button>
+    </view>
+    <view class="weui-btn-area">
+      <button bindtap="addExit" type="primary" formType="submit">保存并返回</button>
+    </view>
+
+  </form>
+
+</view>

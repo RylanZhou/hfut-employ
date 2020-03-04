@@ -1,0 +1,138 @@
+@import '../index.wxss';
+@import '../../../weui.wxss';
+.user-avatar {
+  width: 130rpx;
+  height: 196rpx;
+  border: 1rpx solid #d9d9d9;
+  border-radius: 10rpx;
+  background-color: #c8c8c8;
+}
+
+.user-info{
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  font-size: 34rpx;
+  margin-left: 30rpx;
+}
+
+.user-info-text{
+  margin: 10rpx 0;
+}
+
+.user-info-uid{
+  font-size: 28rpx;
+  color: #808080;
+}
+.list {
+  display: flex;
+  width: 100%;
+  overflow: hidden;
+  justify-content: center;
+  align-items: stretch;
+  border-bottom: solid 1px #ccc;
+}
+
+.content {
+  width: 100%;
+  margin-right: 0;
+  padding: 10rpx 25rpx;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+  -webkit-transform: translateX(120px);
+  transform: translateX(120px);
+  margin-left: -120px;
+  background-color: #fff;
+}
+
+.tools {
+  margin: 10rpx 0rpx;
+  display: flex;
+  flex-direction: row;
+  width: 120px;
+  text-align: center;
+  color: #fff;
+  align-items: center;
+  justify-content: center;
+  -webkit-transform: translateX(120px);
+  transform: translateX(120px);
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+  font-size: 13px;
+}
+
+.modify {
+  background-color: #add8e6;
+  width: 60px;
+  text-align: center;
+  color: #fff;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  height: 120rpx;
+  line-height: 120rpx;
+}
+
+.del {
+  background-color: orangered;
+  width: 60px;
+  text-align: center;
+  color: #fff;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  height: 120rpx;
+  line-height: 120rpx;
+}
+
+.touch-move-active .content, .touch-move-active .tools {
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
+}
+
+.education {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  font-size: 34rpx;
+}
+
+.title {
+  width: 100%;
+  padding-left: 10rpx;
+  white-space: normal;
+  text-align: left;
+  min-height: 60rpx;
+  line-height: 45rpx;
+  font-size: 36rpx;
+}
+
+.contentinfo {
+  width: 100%;
+  text-align: left;
+  padding-left: 10rpx;
+  white-space: normal;
+  height: 60rpx;
+  line-height: 60rpx;
+  color: #666;
+  font-size: 30rpx;
+}
+
+.weui-bar-bottom {
+  position: fixed;
+  width: 100%;
+  text-align: center;
+  background-color: #efefef;
+  bottom: 0rpx;
+  _position: absolute;
+  margin-top: 80px;
+  z-index: 10000;
+}
+
+.weui-btn-area {
+  margin: 1em 15px;
+}
+
+
+

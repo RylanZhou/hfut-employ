@@ -1,0 +1,38 @@
+<view class="container">
+  <form bindsubmit="formSubmit" class="wx-form">
+    <view class="weui-cells weui-cells_after-title">
+
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">获奖时间:</view>
+        </view>
+        <view class="weui-cell__bd">
+          <picker mode="date" name="GetDate" fields="month" value="{{getdate}}" bindchange="bindDateChange1" disabled='{{disabled}}'>
+            <view class="weui-picker">{{getdate}}
+            </view>
+          </picker>
+        </view>
+      </view>
+      <view class="weui-cells__title_top">获奖情况</view>
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+          <textarea name="Caption" class='weui-msg__text-area' placeholder="" value="{{caption}}" placeholder-class='placeholder-class' auto-height="true" style="min-height:50px;width:100%; margin:10px auto;" maxlength='33' disabled='{{disabled}}' />
+        </view>
+      </view>
+
+      <view class="weui-cells__title_top">获奖情况描述</view>
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+            <textarea name="Description" class='weui-msg__text-area' placeholder="" value="{{desc}}" placeholder-class='placeholder-class' auto-height="true" style="min-height:80px;width:100%; margin:10px auto;" maxlength='100' disabled='{{disabled}}' />
+        </view>
+      </view>
+
+    </view>
+
+    <view class="weui-btn-area" wx:if="{{disabled==false}}">
+      <button formType="submit" type="primary">保存</button>
+    </view>
+
+  </form>
+
+</view>

@@ -4,7 +4,13 @@ Page({
     Collegeindex: 0,
     openid: null,
     allow: false,
-    objectCollegeArray: app.objectCollegeArray
+    objectCollegeArray: app.objectCollegeArray,
+
+    loginForm: {
+      name: '',
+      studentNo: '',
+      idNo: ''
+    }
   },
 
   onLoad: function(option) {
@@ -13,35 +19,19 @@ Page({
     })
   },
 
-  // 保存数据
-  formSubmit: function(e) {
-    const that = this
-    const formData = e.detail.value
-    let code = ''
+  handleInputChange(e) {
+    this.setData({
+      loginForm: {
+        [e.target.id]: e.detail
+      }
+    })
+  },
 
-    if (formData.name == '') {
-      wx.showToast({
-        title: '请填写姓名', // 弹出窗口
-        icon: 'none',
-        duration: 2000
-      })
-      return
-    }
-    if (formData.studentnum == '') {
-      wx.showToast({
-        title: '请填写学号', // 弹出窗口
-        icon: 'none',
-        duration: 2000
-      })
-      return
-    }
-    code = app.objectCollegeArray[formData.college].id
-    if (formData.idcode == '') {
-      wx.showToast({
-        title: '请填写身份证号', // 弹出窗口
-        icon: 'none',
-        duration: 2000
-      })
+  // 保存数据
+  formSubmit() {
+    const { name, studentNo, idNo } = this.data.loginForm
+    if (!name || !studentNo || !idNo) {
+      app.toastFailed('请补全表单')
       return
     }
     wx.request({
@@ -49,9 +39,9 @@ Page({
       data: {
         action: 'binduser',
         openid: this.data.openid,
-        name: formData.name,
-        studentnum: formData.studentnum,
-        idcode: formData.idcode,
+        name: name,
+        studentnum: studentNo,
+        idcode: idNo,
         code: 10359,
         college: '合肥工业大学'
       },
@@ -59,11 +49,11 @@ Page({
       header: {
         'Content-Type': 'application/json'
       },
-      success: function(res) {
-        if (res.data.count == 1) {
+      success(res) {
+        if (res.data.count === 1) {
           // 用户绑定成功
-          if (res.data.r == 1) {
-            app.Graduate.openid = that.data.openid
+          if (res.data.r === 1) {
+            app.Graduate.openid = this.data.openid
             app.Graduate.year = res.data.year
             app.Graduate.code = res.data.code
             app.Graduate.college = res.data.college
@@ -83,14 +73,14 @@ Page({
               // 重新回到首页
               url: '/pages/jobinfo/index'
             })
-          } else if (res.data.r == 2) {
+          } else if (res.data.r === 2) {
             //  多个用户，学号重复
             wx.showModal({
               title: '提示',
               content: '学号已经绑定其他微信号，请联系管理员老师'
             })
           }
-        } else if (res.data.count == 0) {
+        } else if (res.data.count === 0) {
           // 不存在
           // 当前用户没有注册，跳转到绑定页面
           wx.showModal({
@@ -106,8 +96,9 @@ Page({
           })
         }
       },
-      fail: function(err) {
-        app.applyfail()
+      fail(error) {
+        console.log(error)
+        app.toastFailed()
       }
     })
   }

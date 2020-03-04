@@ -51,7 +51,7 @@
     </view>
 
     <view class="weui-btn-area" wx:if="{{disabled==false}}">
-      <button formType="submit" type="primary">保存</button>
+      <button formType="submit" class="submit-button">保存</button>
     </view>
 
   </form>

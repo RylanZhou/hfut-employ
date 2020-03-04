@@ -1,12 +1,3 @@
-.submit-button {
-  background-color: #ba2d34;
-  color: white;
-}
-
-.submit-button:active {
-  background-color: #832529;
-}
-
 icon {
   vertical-align: middle;
 }

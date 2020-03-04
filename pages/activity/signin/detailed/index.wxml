@@ -96,7 +96,7 @@
 
     <view class="weui-bar-bottom" hidden="{{hidden}}">
       <view class="weui-btn-area">
-        <button formType="submit" type="primary">确认并保存</button>
+        <button formType="submit" class="submit-button">确认并保存</button>
       </view>
 
     </view>

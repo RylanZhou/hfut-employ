@@ -29,7 +29,7 @@
     </view>
     <view class="weui-bar-bottom">
       <view class="weui-btn-area" style="width:100%;">
-        <button type="primary" formType="submit">提交</button>
+        <button class="submit-button" formType="submit">提交</button>
       </view>
     </view>
 

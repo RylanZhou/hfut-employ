@@ -28,7 +28,7 @@
       </view>
     </view>
     <view class="weui-btn-area">
-      <button type="primary" formType="submit" disabled='{{disabled}}'>接受</button>
+      <button class="submit-button" formType="submit" disabled='{{disabled}}'>接受</button>
     </view>
     <view class="weui-btn-area">
       <button type="warn" bindtap="refuse" disabled='{{disabled}}'>谢绝</button>

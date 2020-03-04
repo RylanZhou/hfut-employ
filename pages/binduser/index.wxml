@@ -1,9 +1,23 @@
-<my-header title="绑定学号">
-  <image src="../../assets/logo.png" />
-</my-header>
-
-<view class="container" style='background-color:#eeeeee'>
-  <form bindsubmit="formSubmit" class="wx-form">
+<view class="page-container">
+  <image class="logo" src="../../assets/logo.png" />
+  <view class="divider" />
+  <view class="login-form">
+    <label for="name">
+      <text>姓名:</text>
+      <input id="name" type="text" bind:change="handleInputChange" value="{{loginForm.name}}" />
+    </label>
+    <label for="studentNo">
+      <text>学号:</text>
+      <input id="studentNo" type="text" bind:change="handleInputChange" value="{{loginForm.studentNo}}" />
+    </label>
+    <label for="idNo">
+      <text>身份证后六位:</text>
+      <input id="idNo" type="text" bind:change="handleInputChange" value="{{loginForm.idNo}}" />
+    </label>
+    <button class="submit-button" bind:tap="formSubmit">登录</button>
+  </view>
+  <van-toast id="van-toast" />
+  <!-- <form bindsubmit="formSubmit" class="wx-form">
 
     <view class="weui-cells weui-cells_after-title">
       <view class="weui-cell weui-cell_input">
@@ -25,6 +39,6 @@
     <view class="weui-btn-area">
       <button class="submit-button" open-type="getUserInfo" formType="submit">登录</button>
     </view>
-  </form>
+  </form> -->
 
 </view>

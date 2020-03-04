@@ -56,7 +56,7 @@
 			<button bindtap="addNext" formType="submit">保存并添加下一个</button>
 		</view>
 		<view class="weui-btn-area">
-			<button bindtap="addExit" type="primary" formType="submit">保存并返回</button>
+			<button bindtap="addExit" class="submit-button" formType="submit">保存并返回</button>
 		</view>
 	</form>
 

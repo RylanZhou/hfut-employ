@@ -1,29 +1,139 @@
 @import '../../../weui.wxss';
+
 .container {
   margin-top: 180rpx;
-}
-
-.user-avatar {
-  width: 130rpx;
-  height: 130rpx;
-  border: 1rpx solid #d9d9d9;
-  border-radius: 10rpx;
-  background-color: #c8c8c8;
-}
-
-.user-info {
+  width: 100%;
+  height: 100vh;
   display: flex;
-  flex: 1;
   flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #eee;
+  z-index: 0;
+}
+
+.wx-form {
+  width: 100%;
+}
+
+.wx-block {
+  padding-top: 40rpx;
+  background-color: #eee;
+  width: 100%;
+}
+
+.wx-cells {
+  width: 100%;
   font-size: 34rpx;
+  background-color: #fff;
+}
+
+.wx-cell-person {
+  margin: 20rpx 30rpx;
+  padding: 0rpx 25rpx;
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+}
+
+.wx-cell-line {
+  height: 100rpx;
+  line-height: 100rpx;
+  margin: 0 30rpx;
+  padding: 0rpx 25rpx;
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border-bottom: 1rpx solid #d9d9d9;
+}
+
+.wx-cell {
+  height: 100rpx;
+  line-height: 100rpx;
+  margin: 0 30rpx;
+  padding: 0rpx 25rpx;
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+}
+
+.wx-cell2 {
+  height: 100rpx;
+  line-height: 100rpx;
+  display: flex;
+  align-items: right;
+  background-color: #fff;
+}
+
+.wx-cell-icon {
+  width: 56rpx;
+  height: 56rpx;
+}
+
+.wx-cell-text {
+  flex: 1;
   margin-left: 30rpx;
 }
 
-.user-info-text {
-  margin: 10rpx 0;
+.wx-cell-arrow {
+  width: 30rpx;
+  height: 30rpx;
+  margin-left: 10rpx;
 }
 
-.user-info-uid {
-  font-size: 28rpx;
+.wx-cell-arrow2 {
+  width: 30rpx;
+  height: 30rpx;
+  margin: 35rpx 0 35rpx 10rpx;
+}
+
+.wx-cell-inner {
+  padding: 30rpx 30rpx 30rpx 0;
+  margin-left: 30rpx;
+  border-bottom: 1rpx solid #d9d9d9;
+}
+
+.wx-cell-left {
+  font-size: 35rpx;
+  align-items: center;
+}
+
+.wx-cell-right {
+  align-items: center;
+}
+
+.wx-cell-right-text {
+  font-size: 30rpx;
   color: #808080;
+}
+
+.no-border {
+  border: 0;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-rest-height {
+  flex: 1;
+  height: initial;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.flex-rest-width {
+  flex: 1;
+  width: initial;
+}
+
+.placeholder-class {
+  color: #808080;
+  font-size: 26rpx;
 }

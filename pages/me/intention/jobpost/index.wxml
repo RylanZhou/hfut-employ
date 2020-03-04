@@ -56,6 +56,6 @@
     <button bindtap="backToPage">返回</button>
   </view>
   <view class="weui-btn-area" style='width:75%'>
-    <button bindtap="addnew" type="primary">添加</button>
+    <button bindtap="addnew" class="submit-button">添加</button>
   </view>
 </view>

@@ -95,7 +95,7 @@
 
     </view>
     <view class="weui-btn-area">
-      <button formType="submit" type="primary">保存</button>
+      <button formType="submit" class="submit-button">保存</button>
     </view>
 
   </form>

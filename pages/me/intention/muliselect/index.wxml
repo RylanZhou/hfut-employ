@@ -20,7 +20,7 @@
           <button bindtap="backToPage">返回</button>
         </view>
         <view class="weui-btn-area" style='width:75%'>
-          <button formType="submit" type="primary">保存</button>
+          <button formType="submit" class="submit-button">保存</button>
         </view>
       </view>
 

@@ -7,12 +7,6 @@ Page({
     objectCollegeArray: app.objectCollegeArray
   },
 
-  CollegePickerChange: function(e) {
-    this.setData({
-      Collegeindex: 0
-    })
-  },
-
   onLoad: function(option) {
     this.setData({
       openid: option.openid

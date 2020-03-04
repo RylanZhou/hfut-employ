@@ -1,20 +1,20 @@
 {
   "pages": [
+    "pages/me/intention/index",
     "pages/jobinfo/index",
     "pages/jobinfo/detailed/index",
-    "pages/binduser/index",
     "pages/jobinfo/company/index",
     "pages/jobinfo/complaint/index",
+    "pages/binduser/index",
     "pages/activity/signin/index",
     "pages/activity/signin/detailed/index",
     "pages/me/index",
+    "pages/me/config/index",
     "pages/me/favorites/index",
     "pages/me/apply/index",
     "pages/me/notice/index",
     "pages/me/notice/invitation/index",
     "pages/me/matching/index",
-    "pages/me/config/index",
-    "pages/me/intention/index",
     "pages/me/intention/muliselect/index",
     "pages/me/intention/jobpost/index",
     "pages/me/recommend/index",
@@ -48,7 +48,8 @@
     "van-toast": "@vant/weapp/toast",
     "van-cell": "@vant/weapp/cell",
     "van-cell-group": "@vant/weapp/cell-group",
-    "van-image": "@vant/weapp/image"
+    "van-image": "@vant/weapp/image",
+    "my-header": "/components/header/index"
   },
   "tabBar": {
     "color": "#333",

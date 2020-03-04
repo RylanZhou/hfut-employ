@@ -1,20 +1,11 @@
+<my-header title="绑定学号">
+  <image src="../../assets/logo.png" />
+</my-header>
+
 <view class="container" style='background-color:#eeeeee'>
   <form bindsubmit="formSubmit" class="wx-form">
 
-    <view class="weui-cells__title_top2"></view>
     <view class="weui-cells weui-cells_after-title">
-
-      <view class="weui-cell weui-cell_input">
-
-        <view class="weui-cell__bd">
-          <picker name="college" bindchange="CollegePickerChange" value="{{Collegeindex}}" range="{{objectCollegeArray}}" range-key="{{'name'}}">
-            <view class="weui-picker" style='text-align:center'>
-              {{objectCollegeArray[Collegeindex].name}}
-            </view>
-          </picker>
-        </view>
-      </view>
-
       <view class="weui-cell weui-cell_input">
         <view class="weui-cell__bd">
           <input name="name" class="weui-input" value="" maxlength='30' placeholder='填写姓名' style="text-align:center" />

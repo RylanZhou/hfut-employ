@@ -5,7 +5,8 @@
 <view class="container">
   <view class="wx-cells">
     <view class="wx-cell-person" data-route="recommend/index"  data-msgkind="0" bindtap="navToPage">
-      <image class="wx-cell-icon user-avatar" src="{{avatarUrl}}"></image>
+      <image wx:if="{{avatarUrl}}" class="wx-cell-icon user-avatar" src="{{avatarUrl}}" />
+      <view class="avatar-placeholder" wx:else />
       <view class="user-info">
         <text class="user-info-text">{{nickName}}</text>
         <text class="user-info-text user-info-uid">简历(就业推荐表)</text>

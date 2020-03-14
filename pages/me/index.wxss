@@ -5,6 +5,14 @@ page {
   background-color: #eee;
 }
 
+.avatar-placeholder {
+  box-sizing: border-box;
+  width: 130rpx;
+  height: 130rpx;
+  border: 4rpx dashed #ccc;
+  border-radius: 10rpx;
+}
+
 .container {
   height: 100%;
   display: flex;

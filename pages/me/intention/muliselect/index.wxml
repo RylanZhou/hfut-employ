@@ -1,26 +1,27 @@
 <my-header title="{{title}}" withBack bind:back="backToPage" />
 <view class="container">
- <form bindsubmit="formSubmit" class="wx-form">
-  <view class="page-body">
-    <view class="page-section">
-      <view class="page-section-title">请选择从事单位的{{title}},最多选5个</view>
-      <view class="weui-cells weui-cells_after-title">
-        <checkbox-group bindchange="checkboxChange">
-          <label class="weui-cell weui-check__label" wx:for="{{items}}" wx:key="{{item.value}}">
+ <form class="wx-form">
+    <view class="page-body">
+      <view class="page-section">
+        <view class="page-section-title">请选择从事单位的{{title}},最多选5个</view>
+        <view class="weui-cells weui-cells_after-title">
+          <checkbox-group bindchange="checkboxChange">
+            <label class="weui-cell weui-check__label" wx:for="{{items}}" wx:key="index">
 
-            <view class="weui-cell__hd">
-              <checkbox value="{{item.value}}" checked="{{item.checked}}" />
-            </view>
-            <view class="weui-cell__bd2">{{item.name}}</view>
-          </label>
-        </checkbox-group>
+              <view class="weui-cell__hd">
+                <checkbox value="{{item.value}}" checked="{{item.checked}}" />
+              </view>
+              <view class="weui-cell__bd2">{{item.name}}</view>
+            </label>
+          </checkbox-group>
+        </view>
+
+        <view class="weui-btn-area">
+          <button bind:tap="formSubmit" class="submit-button">保存</button>
+        </view>
+
       </view>
-
-      <view class="weui-btn-area">
-        <button formType="submit" class="submit-button">保存</button>
-      </view>
-
     </view>
-  </view>
   </form>
+  <van-toast id="van-toast" />
 </view>

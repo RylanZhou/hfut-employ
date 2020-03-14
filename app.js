@@ -73,7 +73,7 @@ App({
     })
   },
 
-  toastFailed(message, duration = 1000, selector = '#van-toast') {
+  toastFailed(message = '请求失败', duration = 1000, selector = '#van-toast') {
     Toast.fail({
       duration,
       forbidClick: true,

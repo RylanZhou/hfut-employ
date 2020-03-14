@@ -132,7 +132,11 @@ Page({
       app.toastClear()
     } catch (error) {
       console.log(error)
-      app.toastFailed('数据获取失败')
+      if (!app.Graduate.code) {
+        app.toastFailed('请登录')
+      } else {
+        app.toastFailed('数据获取失败')
+      }
     }
   },
 

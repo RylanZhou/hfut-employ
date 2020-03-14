@@ -3,7 +3,7 @@ import { getImageCache } from '../../../utils/userCache.js'
 const app = getApp()
 Page({
   data: {
-    src: '/assets/emotion.png',
+    src: '',
     graduate: {},
     score: 0
   },

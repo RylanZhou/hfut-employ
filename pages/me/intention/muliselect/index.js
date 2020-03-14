@@ -165,7 +165,6 @@ Page({
 
   formSubmit: function(e) {
     const that = this
-    console.log(that.data.val)
     wx.request({
       url:
         app.api.baseUrl +
@@ -184,9 +183,14 @@ Page({
       header: {
         'Content-Type': 'application/json'
       },
-      success: function(res) {},
+      success: function(res) {
+        if (res.m === '保存成功') {
+          app.toastSuccess(res.m)
+        }
+        that.backToPage()
+      },
       fail: function(err) {
-        app.applyfail()
+        app.toastFailed()
       }
     })
   },

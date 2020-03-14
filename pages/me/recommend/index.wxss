@@ -8,7 +8,20 @@
   background-color: #c8c8c8;
 }
 
-.user-info{
+.avatar-placeholder {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 130rpx;
+  height: 196rpx;
+  border: 4rpx dashed #ccc;
+  border-radius: 10rpx;
+  font-size: 24rpx;
+  color: #ccc;
+}
+
+.user-info {
   display: flex;
   flex: 1;
   flex-direction: column;
@@ -16,11 +29,11 @@
   margin-left: 30rpx;
 }
 
-.user-info-text{
+.user-info-text {
   margin: 10rpx 0;
 }
 
-.user-info-uid{
+.user-info-uid {
   font-size: 28rpx;
   color: #808080;
 }
@@ -85,7 +98,8 @@
   line-height: 120rpx;
 }
 
-.touch-move-active .content, .touch-move-active .tools {
+.touch-move-active .content,
+.touch-move-active .tools {
   -webkit-transform: translateX(0);
   transform: translateX(0);
 }
@@ -133,6 +147,3 @@
 .weui-btn-area {
   margin: 1em 15px;
 }
-
-
-

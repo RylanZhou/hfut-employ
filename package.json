@@ -1,6 +1,6 @@
 {
-  "name": "hfut_employii",
-  "version": "1.0.0",
+  "name": "hfut_employ",
+  "version": "0.1.7",
   "description": "HFUT Employment services.",
   "main": "app.js",
   "scripts": {

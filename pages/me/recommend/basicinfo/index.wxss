@@ -1,5 +1,6 @@
 @import '../../../../weui.wxss';
 
 .container {
+  height: 1154rpx;
   margin-top: 180rpx;
 }

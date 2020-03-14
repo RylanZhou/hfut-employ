@@ -2,71 +2,76 @@
 
 <view class="container" style='background-color:#eeeeee'>
   <form bindsubmit="formSubmit" class="wx-form">
+    <van-cell-group title="基本信息">
+      <van-field
+        value="{{ Graduate.Heathly }}"
+        name="Heathly"
+        label="健康状况"
+        left-icon="like-o"
+        placeholder="良好"
+        maxlength="10"
+        input-align="right"
+      />
+      <van-field
+        value="{{ Graduate.Degree }}"
+        name="Degree"
+        label="学位"
+        left-icon="award-o"
+        maxlength="10"
+        input-align="right"
+      />
+      <van-field
+        value="{{ Graduate.OrginPlace }}"
+        name="OrginPlace"
+        label="籍贯"
+        left-icon="home-o"
+        maxlength="15"
+        input-align="right"
+      />
+      <van-field
+        value="{{ Graduate.IT }}"
+        name="IT"
+        label="计算机水平"
+        left-icon="desktop-o"
+        maxlength="15"
+        input-align="right"
+      />
+      <van-field
+        value="{{ Graduate.Language }}"
+        name="Language"
+        label="外语程度"
+        left-icon="label-o"
+        maxlength="15"
+        input-align="right"
+      />
+    </van-cell-group>
+    <van-cell-group title="补充信息">
+      <van-field
+        value="{{ Graduate.Hobby }}"
+        name="Hobby"
+        label="兴趣爱好"
+        type="textarea"
+        autosize
+        maxlength="150"
+      />
+      <van-field
+        value="{{ Graduate.Ability }}"
+        name="Ability"
+        label="能力及特长"
+        type="textarea"
+        autosize
+        maxlength="150"
+      />
+      <van-field
+        value="{{ Graduate.Introduction }}"
+        name="Introduction"
+        label="自我评价"
+        type="textarea"
+        autosize
+        maxlength="150"
+      />
+    </van-cell-group>
 
-
-    <view class="weui-cells__title_top">基本信息</view>
-    <view class="weui-cells weui-cells_after-title">
-      <view class="weui-cell weui-cell_input">
-        <view class="weui-cell__hd">
-          <view class="weui-label">健康状况:</view>
-        </view>
-        <view class="weui-cell__bd">
-          <input name="Heathly" class="weui-input" value="{{Graduate.Heathly}}" maxlength='10' placeholder='良好' />
-        </view>
-      </view>
-      <view class="weui-cell weui-cell_input">
-        <view class="weui-cell__hd">
-          <view class="weui-label">学位:</view>
-        </view>
-        <view class="weui-cell__bd">
-          <input name="Degree" class="weui-input" value="{{Graduate.Degree}}" maxlength='10' />
-        </view>
-      </view>
-      <view class="weui-cell weui-cell_input">
-        <view class="weui-cell__hd">
-          <view class="weui-label">籍贯:</view>
-        </view>
-        <view class="weui-cell__bd">
-          <input name="OrginPlace" class="weui-input" value="{{Graduate.OrginPlace}}" maxlength='15' />
-        </view>
-      </view>
-      <view class="weui-cell weui-cell_input">
-        <view class="weui-cell__hd">
-          <view class="weui-label">计算机水平:</view>
-        </view>
-        <view class="weui-cell__bd">
-          <input name="IT" class="weui-input" value="{{Graduate.IT}}" maxlength='15' />
-        </view>
-      </view>
-      <view class="weui-cell weui-cell_input">
-        <view class="weui-cell__hd">
-          <view class="weui-label">外语程度:</view>
-        </view>
-        <view class="weui-cell__bd">
-          <input name="Language" class="weui-input" value="{{Graduate.Language}}" maxlength='15' />
-        </view>
-      </view>
-    </view>
-
-    <view class="weui-cells__title_top">兴趣爱好</view>
-    <view class="weui-cells weui-cells_after-title">
-      <view class="weui-cell weui-cell_input">
-        <textarea name="Hobby" auto-height="true" class='weui-msg__text-area' placeholder="" value="{{Graduate.Hobby}}" maxlength='150' style='min-height:60px;width:100%;margin:10px auto;' />
-      </view>
-    </view>
-
-    <view class="weui-cells__title_top">能力及特长</view>
-    <view class="weui-cells weui-cells_after-title">
-      <view class="weui-cell weui-cell_input">
-        <textarea name="Ability" auto-height="true" class='weui-msg__text-area' placeholder="" value="{{Graduate.Ability}}" maxlength='150' style='min-height:60px;width:100%;margin:10px auto;' />
-      </view>
-    </view>
-    <view class="weui-cells__title_top">自我介绍或评价</view>
-    <view class="weui-cells weui-cells_after-title">
-      <view class="weui-cell weui-cell_input">
-        <textarea name="Introduction" auto-height="true" class='weui-msg__text-area' placeholder="" value="{{Graduate.Introduction}}" maxlength='250' style='min-height:100px;width:100%;margin:10px auto;' />
-      </view>
-    </view>
     <view class="weui-bar" style="display:flex;direction:row">
       <view class="weui-btn-area" style='width:25%'>
         <button bindtap="backToPage">返回</button>

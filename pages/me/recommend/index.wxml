@@ -2,7 +2,10 @@
 <view class="container">
   <view class="wx-cells">
     <view class="wx-cell-person">
-      <image class="wx-cell-icon user-avatar" src="{{src}}" bindtap="uploadphoto"></image>
+      <image wx:if="{{src}}" class="wx-cell-icon user-avatar" src="{{src}}" bindtap="uploadphoto" />
+      <view wx:else class="avatar-placeholder" bindtap="uploadphoto">
+        上传照片
+      </view>
       <view class="user-info">
         <text class="user-info-text">{{graduate.name}}</text>
         <text class="user-info-text user-info-uid">{{graduate.college}}</text>

@@ -1,4 +1,4 @@
-let app = getApp()
+const app = getApp()
 Page({
   data: {
     id: '',
@@ -21,7 +21,7 @@ Page({
       app.launchurl = '/pages/me'
       app.wxlogin()
     } else {
-      let that = this
+      const that = this
       let flag = false
       if (option.flag == '1') flag = true
       wx.request({
@@ -67,15 +67,19 @@ Page({
     })
   },
 
+  handleJumpBack() {
+    wx.navigateBack()
+  },
+
   // 保存数据
   formSubmit: function(e) {
-    let that = this
+    const that = this
 
-    let formData = e.detail.value
+    const formData = e.detail.value
     if (checknull(formData.GetDate, '请选择获得时间')) return
     if (that.data.Skillkindindex == 0) {
       wx.showToast({
-        title: '请选择证书类别', //弹出窗口
+        title: '请选择证书类别', // 弹出窗口
         icon: 'none',
         duration: 2000
       })
@@ -99,7 +103,7 @@ Page({
       success: function(res) {
         wx.hideLoading()
         wx.showToast({
-          title: '保存成功', //弹出窗口
+          title: '保存成功', // 弹出窗口
           icon: 'success',
           duration: 2000
         })
@@ -110,7 +114,7 @@ Page({
       fail: function() {
         wx.hideLoading()
         wx.showToast({
-          title: '保存失败', //弹出窗口
+          title: '保存失败', // 弹出窗口
           icon: 'none',
           duration: 2000
         })
@@ -123,7 +127,7 @@ Page({
 function checknull(data, tip) {
   if (data == '') {
     wx.showToast({
-      title: tip, //弹出窗口
+      title: tip, // 弹出窗口
       icon: 'none',
       duration: 2000
     })

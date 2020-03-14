@@ -20,10 +20,9 @@ Page({
   },
 
   handleInputChange(e) {
+    const key = `loginForm.${e.target.id}`
     this.setData({
-      loginForm: {
-        [e.target.id]: e.detail
-      }
+      [key]: e.detail.value
     })
   },
 
@@ -35,7 +34,7 @@ Page({
       return
     }
     wx.request({
-      url: app.api.loginUrl + 'UserInfo.ashx?rand=' + Math.random(),
+      url: app.api.loginUrl + 'UserInfo10359.ashx?rand=' + Math.random(),
       data: {
         action: 'binduser',
         openid: this.data.openid,
@@ -49,7 +48,7 @@ Page({
       header: {
         'Content-Type': 'application/json'
       },
-      success(res) {
+      success: (res) => {
         if (res.data.count === 1) {
           // 用户绑定成功
           if (res.data.r === 1) {

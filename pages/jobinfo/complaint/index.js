@@ -1,4 +1,4 @@
-let app = getApp()
+const app = getApp()
 Page({
   data: {
     cid: 0,
@@ -34,14 +34,18 @@ Page({
     })
   },
 
+  handleJumpBack() {
+    wx.navigateBack()
+  },
+
   // 保存数据
   formSubmit: function(e) {
-    let that = this
+    const that = this
 
-    let formData = e.detail.value
+    const formData = e.detail.value
     if (that.data.Kindindex == 0) {
       wx.showToast({
-        title: '请选择投诉或举报原因', //弹出窗口
+        title: '请选择投诉或举报原因', // 弹出窗口
         icon: 'none',
         duration: 2000
       })
@@ -73,7 +77,7 @@ Page({
       success: function(res) {
         wx.hideLoading()
         wx.showToast({
-          title: '提交成功,平台会尽快核实！', //弹出窗口
+          title: '提交成功,平台会尽快核实！', // 弹出窗口
           icon: 'none',
           duration: 2000
         })
@@ -81,7 +85,7 @@ Page({
       fail: function() {
         wx.hideLoading()
         wx.showToast({
-          title: '保存失败', //弹出窗口
+          title: '保存失败', // 弹出窗口
           icon: 'none',
           duration: 2000
         })
@@ -94,7 +98,7 @@ Page({
 function checknull(data, tip) {
   if (data == '') {
     wx.showToast({
-      title: tip, //弹出窗口
+      title: tip, // 弹出窗口
       icon: 'none',
       duration: 2000
     })

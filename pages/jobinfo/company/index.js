@@ -15,7 +15,9 @@ Page({
       favorites: '',
       joblist: [],
       jobidlist: [],
-      salary: []
+      salary: [],
+
+      enableJump: 1
     }
   },
 
@@ -25,6 +27,9 @@ Page({
       app.wxlogin()
     } else {
       const cid = option.cid
+      this.setData({
+        enableJump: option.jump
+      })
       const that = this
       app.loading()
       wx.request({
@@ -62,11 +67,6 @@ Page({
 
   // 页面跳转
   navToPage(event) {
-    wx.showToast({
-      title: '加载中',
-      icon: 'loading',
-      duration: 10000
-    })
     const route = event.currentTarget.dataset.route
     wx.navigateTo({
       url: route

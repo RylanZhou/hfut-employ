@@ -1,10 +1,11 @@
+<my-header title="{{title}}" withBack bind:back="backToPage" />
 <view class="container">
  <form bindsubmit="formSubmit" class="wx-form">
   <view class="page-body">
     <view class="page-section">
       <view class="page-section-title">请选择从事单位的{{title}},最多选5个</view>
       <view class="weui-cells weui-cells_after-title">
-        <checkbox-group bindchange="checkboxChange" style="margin-bottom:80px;">
+        <checkbox-group bindchange="checkboxChange">
           <label class="weui-cell weui-check__label" wx:for="{{items}}" wx:key="{{item.value}}">
 
             <view class="weui-cell__hd">
@@ -15,13 +16,8 @@
         </checkbox-group>
       </view>
 
-      <view class="weui-bar-bottom" style="display:flex;direction:row">
-        <view class="weui-btn-area" style='width:25%'>
-          <button bindtap="backToPage">返回</button>
-        </view>
-        <view class="weui-btn-area" style='width:75%'>
-          <button formType="submit" class="submit-button">保存</button>
-        </view>
+      <view class="weui-btn-area">
+        <button formType="submit" class="submit-button">保存</button>
       </view>
 
     </view>

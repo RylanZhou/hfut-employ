@@ -1,0 +1,48 @@
+<view class='page_row' style=" display: flex; flex-direction: column;">
+	<view>
+		<image src="https://yun.ahbys.com/Images/topbar.png" class="slide-image" style="height:90px;width:100%;" />
+	</view>
+	<view style=" display: flex; flex-direction: row;margin-top:10px; padding-bottom:10px;">
+		<view class="search">
+			<view class="df search_arr">
+				<icon class="searchcion" size='20' type='search'></icon>
+				<input class="" placeholder="请输入单位名称查询" bindinput="keyInput" />
+			</view>
+		</view>
+		<view class='sousuo' bindtap='search'>搜索</view>
+	</view>
+</view>
+<scroll-view scroll-y="true" class="content" bindscrolltoupper="pullDownRefresh" bindscrolltolower="pullUpLoad">
+	<view class="container" style='border-top:solid 1px #CCCCCC;'>
+		<form bindsubmit="formSubmit" class="wx-form">
+			<view class="job-cell" style=" margin-top:160px;">
+				<view class="lineview">
+					<view class="jobrow">
+						<view class='theme'>安徽省2020年高校毕业生春季网络招聘</view>
+					</view>
+				</view>
+			</view>
+			<view class="spaceline" style='border-top:solid 1px #CCCCCC;'></view>
+			<view class="job-cell">
+				<view class="lineview">
+					<view class="jobcolumn">
+						<view class='title' style='width:80%;font-weight:bold'>参会单位</view>
+					</view>
+				</view>
+			</view>
+			<view class="job-cell">
+				<view class="jobrow">
+					<view class='job' wx:for="{{CompanyInfo.companyid}}" wx:key="navItems" data-route="/pages/activity/jobinfo/company/index?cid={{CompanyInfo.companyid[index]}}" bindtap="navToPage">
+						<view class="line1">
+							<view class="jobname">{{CompanyInfo.companyname[index]}}</view>
+						</view>
+					</view>
+				</view>
+			</view>
+		</form>
+	</view>
+	<view class="weui-loadmore" hidden="{{isHideLoadMore}}">
+		<view class="weui-loading" hidden="{{isHideLoading}}"></view>
+		<view class="weui-loadmore__tips" data-route="index?kind=2" bindtap="navToPage">{{LoadMore}}</view>
+	</view>
+</scroll-view>

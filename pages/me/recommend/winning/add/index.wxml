@@ -1,3 +1,4 @@
+<my-header title="获奖情况" withBack bind:back="handleJumpBack" />
 <view class="container">
   <form bindsubmit="formSubmit" class="wx-form">
     <view class="weui-cells weui-cells_after-title" style="margin-bottom:80px;">

@@ -9,7 +9,9 @@ Page({
     touch: { x: '', y: '' },
     jobid: '',
     cid: '',
-    info: {}
+    info: {},
+
+    enableJump: true
   },
 
   onLoad(option) {
@@ -20,8 +22,10 @@ Page({
       wx.showShareMenu()
       this.setData({
         jobid: option.jobid,
-        cid: option.cid
+        cid: option.cid,
+        enableJump: option.jump !== '0'
       })
+      console.log(option)
       this.jobinfo()
     }
   },
@@ -30,6 +34,22 @@ Page({
     app.toastLoading()
     try {
       const data = await getJobDetailById(this.data.jobid, app.Graduate)
+      const keyToBeTrimmed = [
+        'city',
+        'count',
+        'discipline',
+        'education',
+        'industry',
+        'post',
+        'unitperpory',
+        'unitsize'
+      ]
+      for (const key of keyToBeTrimmed) {
+        const split = data[key].split('：')
+        if (split.length > 1) {
+          data[key] = split[1]
+        }
+      }
       this.setData({
         info: { ...data }
       })
@@ -92,9 +112,16 @@ Page({
   async handleApplication() {
     try {
       const result = await this.confirmApplication()
-      if (!result.confirm) return
+      if (!result.confirm) {
+        return
+      }
       app.toastLoading()
-      await applyJob(app.Graduate, this.data)
+      const data = await applyJob(app.Graduate, this.data)
+
+      if (data.r === 1) {
+        app.toastFailed(data.m)
+        return
+      }
       this.setData({
         'info.apply': true
       })

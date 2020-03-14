@@ -31,7 +31,7 @@
     </view>
     <view class="job-cell">
       <view class="jobrow">
-        <view class='job' wx:for="{{Company.joblist}}" wx:key="{{navItems}}" data-route="/pages/jobinfo/detailed/index?job={{Company.jobidlist}}&idx={{index}}" bindtap="navToPage">
+        <view class='job' wx:for="{{Company.joblist}}" wx:for-index="index" wx:key="{{navItems}}" data-route="/pages/jobinfo/detailed/index?jobid={{Company.jobidlist[index]}}&jump=0" bindtap="navToPage">
           <view class="line2">
             <view class="jobname">{{Company.joblist[index]}}</view>
             <view class='salary'>{{Company.salary[index]}}</view>

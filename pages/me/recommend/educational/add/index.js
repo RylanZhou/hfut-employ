@@ -1,4 +1,4 @@
-let app = getApp()
+const app = getApp()
 Page({
   onLoad: function() {
     if (app.Graduate.gid == null) {
@@ -8,12 +8,12 @@ Page({
   },
   data: {
     addnext: false,
-    beginfrom: '2020-03',
-    endto: '2020-04',
-    Education: 111,
+    beginfrom: '',
+    endto: '',
+    Education: 0,
     objectEducationArray: app.objectEducationArray,
-    school: 'AAA',
-    description: 'AAA'
+    school: '',
+    description: ''
   },
 
   bindDateChange1: function(e) {
@@ -44,18 +44,22 @@ Page({
     })
   },
 
+  handleJumpBack() {
+    wx.navigateBack()
+  },
+
   // 保存数据
   formSubmit: function(e) {
-    let that = this
+    const that = this
 
-    let formData = e.detail.value
+    const formData = e.detail.value
     if (checknull(formData.School, '请填写学校名称')) return
     if (checknull(formData.BeginFrom, '请填写开始时间')) return
     if (checknull(formData.EndTo, '请填写结束时间')) return
     if (checknull(formData.Description, '请填写主修课程')) return
     if (that.data.educationindex == 0) {
       wx.showToast({
-        title: '请选择学历', //弹出窗口
+        title: '请选择学历', // 弹出窗口
         icon: 'none',
         duration: 2000
       })
@@ -85,12 +89,12 @@ Page({
         console.log(res)
         wx.hideLoading()
         wx.showToast({
-          title: '保存成功', //弹出窗口
+          title: '保存成功', // 弹出窗口
           icon: 'success',
           duration: 2000
         })
         if (that.data.addnext) {
-          //清空并添加下一条
+          // 清空并添加下一条
           that.setData({
             education: '',
             beginfrom: '',
@@ -100,7 +104,7 @@ Page({
             description: ''
           })
         } else {
-          //返回上级页面
+          // 返回上级页面
           wx.redirectTo({
             url: '../index'
           })
@@ -109,7 +113,7 @@ Page({
       fail: function() {
         wx.hideLoading()
         wx.showToast({
-          title: '保存失败', //弹出窗口
+          title: '保存失败', // 弹出窗口
           icon: 'none',
           duration: 2000
         })
@@ -122,7 +126,7 @@ Page({
 function checknull(data, tip) {
   if (data == '') {
     wx.showToast({
-      title: tip, //弹出窗口
+      title: tip, // 弹出窗口
       icon: 'none',
       duration: 2000
     })

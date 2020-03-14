@@ -1,3 +1,5 @@
+<my-header title="教育背景" withBack bind:back="handleJumpBack" />
+
 <view class="container">
 	<form bindsubmit="formSubmit" class="wx-form">
 		<view class="weui-cells weui-cells_after-title">
@@ -53,7 +55,7 @@
 			</view>
         </view>
 
-    <view class="weui-btn-area" wx:if="{{disabled==false}}">
+    <view class="weui-btn-area">
       <button formType="submit" class="submit-button">保存</button>
     </view>
 

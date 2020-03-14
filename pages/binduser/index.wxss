@@ -40,7 +40,7 @@
 
 .login-form label text {
   display: block;
-  width: 400rpx;
+  width: 140rpx;
 }
 
 .login-form input {

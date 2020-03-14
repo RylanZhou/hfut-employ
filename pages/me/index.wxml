@@ -21,11 +21,6 @@
         <text class="wx-cell-text">面试和签约通知</text>
         <image class="wx-cell-arrow" src="/assets/right-gray.png"></image>
       </view>
-      <view class="wx-cell-line" data-route="matching/index" data-msgkind="0" bindtap="navToPage">
-        <image class="wx-cell-icon" src="/assets/icons/Discovery/job.jpg"></image>
-        <text class="wx-cell-text">求职意向职位</text>
-        <image class="wx-cell-arrow" src="/assets/right-gray.png"></image>
-      </view>
       <view class="wx-cell-line" data-route="apply/index" data-msgkind="0" bindtap="navToPage">
         <image class="wx-cell-icon" src="/assets/icons/Mine/history.png"></image>
         <text class="wx-cell-text">职位申请记录</text>

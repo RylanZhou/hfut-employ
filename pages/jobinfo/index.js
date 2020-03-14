@@ -21,18 +21,18 @@ Page({
     pageindex: 1,
     pagecount: 1,
     key: '',
+    code: '',
     wkind: 1,
     jobList: []
   },
 
-  onLoad() {
-    if (app.Graduate.gid == null) {
-      app.launchurl = '/pages/activity'
-      app.wxlogin()
-    } else {
-      app.toastLoading()
-      this.getJobData()
+  async onReady() {
+    if (!app.Graduate.code) {
+      app.launchurl = '/pages/jobinfo'
+      await app.wxlogin()
     }
+    this.getJobData()
+    app.toastLoading()
   },
 
   handleSearchInput(e) {
@@ -93,7 +93,6 @@ Page({
   async getJobData() {
     try {
       const { result } = await getJobList(this.data, app.Graduate)
-      console.log(result)
       const { data, pagecount } = result
       const len = data.length
       if (len && len < LIMIT) {

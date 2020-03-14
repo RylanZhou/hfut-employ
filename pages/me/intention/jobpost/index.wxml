@@ -1,5 +1,6 @@
-<view class="container" style="margin-bottom:80px;">
+<my-header title="职业类型" withBack bind:back="backToPage" />
 
+<scroll-view scroll-y="{{true}}" class="container">
   <view class="weui-cells weui-cells_after-title" style="width:100%">
     <view class="list {{isTouchMove[index]? 'touch-move-active' : ''}}" wx:for="{{id}}" bindtouchstart="touchstart" bindtouchmove="touchmove" data-index="{{index}}" wx:key="navItems">
       <view class="content">
@@ -28,7 +29,7 @@
               {{objectJobPost1Array[JobPost1index].name}}
             </view>
           </picker>
-          <image class="wx-cell-arrow2" src="/assets/right-gray.png"></image>
+          <!-- <image class="wx-cell-arrow2" src="/assets/right-gray.png"></image> -->
         </view>
       </view>
     </view>
@@ -47,15 +48,8 @@
       </view>
     </view>
   </view>
-</view>
 
-
-
-<view class="weui-bar-bottom" style="display:flex;direction:row">
-  <view class="weui-btn-area" style='width:25%'>
-    <button bindtap="backToPage">返回</button>
-  </view>
-  <view class="weui-btn-area" style='width:75%'>
+  <view class="weui-btn-area">
     <button bindtap="addnew" class="submit-button">添加</button>
   </view>
-</view>
+</scroll-view>

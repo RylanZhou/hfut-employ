@@ -1,4 +1,4 @@
-let app = getApp()
+const app = getApp()
 Page({
   onLoad: function() {
     if (app.Graduate.gid == null) {
@@ -45,15 +45,19 @@ Page({
     })
   },
 
+  handleJumpBack() {
+    wx.navigateBack()
+  },
+
   // 保存数据
   formSubmit: function(e) {
-    let that = this
+    const that = this
 
-    let formData = e.detail.value
+    const formData = e.detail.value
     if (checknull(formData.GetDate, '请填写获得时间')) return
     if (that.data.Skillkindindex == 0) {
       wx.showToast({
-        title: '请选择证书类别', //弹出窗口
+        title: '请选择证书类别', // 弹出窗口
         icon: 'none',
         duration: 2000
       })
@@ -78,12 +82,12 @@ Page({
       success: function(res) {
         wx.hideLoading()
         wx.showToast({
-          title: '保存成功', //弹出窗口
+          title: '保存成功', // 弹出窗口
           icon: 'success',
           duration: 2000
         })
         if (that.data.addnext) {
-          //清空并添加下一条
+          // 清空并添加下一条
           that.setData({
             skillkind: '',
             getdate: '',
@@ -93,7 +97,7 @@ Page({
             Skillkindindex: 0
           })
         } else {
-          //返回上级页面
+          // 返回上级页面
           wx.redirectTo({
             url: '../index'
           })
@@ -102,7 +106,7 @@ Page({
       fail: function() {
         wx.hideLoading()
         wx.showToast({
-          title: '保存失败', //弹出窗口
+          title: '保存失败', // 弹出窗口
           icon: 'none',
           duration: 2000
         })
@@ -115,7 +119,7 @@ Page({
 function checknull(data, tip) {
   if (data == '') {
     wx.showToast({
-      title: tip, //弹出窗口
+      title: tip, // 弹出窗口
       icon: 'none',
       duration: 2000
     })

@@ -4,6 +4,7 @@
 
 .container {
   margin-top: 180rpx;
+  padding-top: 20rpx;
 }
 
 .wx-switch-input {

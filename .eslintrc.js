@@ -10,6 +10,7 @@ module.exports = {
     'SharedArrayBuffer': 'readonly',
     'wx': true,
     'getApp': true,
+    'App': true,
     'Page': true,
     'Component': true
   },

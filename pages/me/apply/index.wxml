@@ -1,11 +1,25 @@
 <!--content-->
-<my-header title="申请记录" withBack bind:back="handleJumpBack" />
-<scroll-view scroll-y="true" class="content">
-  <view wx:if="{{acount==0}}">
-    <view class="none">暂无可加载内容</view>
-  </view>
-  <view wx:elif="{{acount>0}}">
-    <view class="joblist {{JobInfo.isTouchMove[index]? 'touch-move-active' : ''}}" wx:for="{{JobInfo.jobname}}" data-route="/pages/jobinfo/detailed/index?job={{JobInfo.jobid}}&idx={{index}}" bindtap="navToPage" bindtouchstart="touchstart" bindtouchmove="touchmove"  data-index="{{index}}" wx:key='{{navItems}}'>
+<view class="page-container">
+  <my-header title="申请记录" withBack bind:back="handleJumpBack" />
+  <view wx:if="{{acount==0}}" class="none">
+    暂无可加载内容</view>
+  <scroll-view wx:else scroll-y="true" class="content">
+    <van-swipe-cell wx:for="{{JobInfo}}" wx:for-item="item" right-width="{{65}}" data-route="/pages/jobinfo/detailed/index?jobid={{item.jobid}}" bindtap="navToPage" data-index="{{index}}">
+      <view class="job-item">
+        <image class="image" src="{{item.LogoUrl}}" />
+        <view class="desc">
+          <view class="title">{{item.jobname}}</view>
+          <view class="text">
+            <view>{{item.company}}</view>
+            <view>薪资：{{item.salary}}</view>
+            <view>{{item.jobaddtion}}</view>
+            <view>收藏日期：{{item.date}}</view>
+          </view>
+        </view>
+      </view>
+      <view slot="right" class="delete-block" catchtap="del" data-index="{{index}}" data-id="{{item.id}}">删除</view>
+    </van-swipe-cell>
+    <!-- <view class="joblist {{JobInfo.isTouchMove[index]? 'touch-move-active' : ''}}" wx:for="{{JobInfo.jobname}}" data-route="/pages/jobinfo/detailed/index?job={{JobInfo.jobid}}&idx={{index}}" bindtap="navToPage" bindtouchstart="touchstart" bindtouchmove="touchmove"  data-index="{{index}}" wx:key='{{navItems}}'>
       <view class="content">
         <view class="jobinfo">
           <view class="jobleft">
@@ -23,6 +37,6 @@
         </view>
       </view>
       <view class="del" catchtap="del" data-index="{{index}}" data-id="{{JobInfo.id[index]}}">删除</view>
-    </view>
-  </view>
-</scroll-view>
+    </view> -->
+  </scroll-view>
+</view>

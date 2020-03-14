@@ -1,4 +1,4 @@
-let app = getApp()
+const app = getApp()
 Page({
   data: {
     Kindindex: 0,
@@ -50,14 +50,18 @@ Page({
     })
   },
 
+  handleJumpBack() {
+    wx.navigateBack()
+  },
+
   // 保存数据
   formSubmit: function(e) {
-    let that = this
+    const that = this
 
-    let formData = e.detail.value
+    const formData = e.detail.value
     if (that.data.Kindindex == 0) {
       wx.showToast({
-        title: '请选择在校经历', //弹出窗口
+        title: '请选择在校经历', // 弹出窗口
         icon: 'none',
         duration: 2000
       })
@@ -69,7 +73,7 @@ Page({
 
     if (formData.BeginFrom > formData.EndTo) {
       wx.showToast({
-        title: '开始时间不能大于结束时间', //弹出窗口
+        title: '开始时间不能大于结束时间', // 弹出窗口
         icon: 'none',
         duration: 2000
       })
@@ -94,12 +98,12 @@ Page({
         console.log(res)
         wx.hideLoading()
         wx.showToast({
-          title: '保存成功', //弹出窗口
+          title: '保存成功', // 弹出窗口
           icon: 'none',
           duration: 2000
         })
         if (that.data.addnext) {
-          //清空并添加下一条
+          // 清空并添加下一条
           that.setData({
             beginfrom: '',
             caption: '',
@@ -108,7 +112,7 @@ Page({
             Kindindex: 0
           })
         } else {
-          //返回上级页面
+          // 返回上级页面
           wx.redirectTo({
             url: '../index?kind=' + that.data.kind
           })
@@ -117,7 +121,7 @@ Page({
       fail: function() {
         wx.hideLoading()
         wx.showToast({
-          title: '保存失败', //弹出窗口
+          title: '保存失败', // 弹出窗口
           icon: 'none',
           duration: 2000
         })
@@ -130,7 +134,7 @@ Page({
 function checknull(data, tip) {
   if (data == '') {
     wx.showToast({
-      title: tip, //弹出窗口
+      title: tip, // 弹出窗口
       icon: 'none',
       duration: 2000
     })

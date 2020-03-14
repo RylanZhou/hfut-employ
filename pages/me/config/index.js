@@ -115,7 +115,7 @@ Page({
       success: function(res) {
         if (res.confirm) {
           wx.request({
-            url: app.api.loginUrl + 'UserInfo.ashx?rand=' + Math.random(),
+            url: app.api.loginUrl + 'UserInfo10359.ashx?rand=' + Math.random(),
             data: {
               action: 'unbinduser',
               gid: app.Graduate.gid,

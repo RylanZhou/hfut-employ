@@ -1,5 +1,6 @@
+<my-header title="投诉" withBack bind:back="handleJumpBack"/>
 <view class="container">
-  <form bindsubmit="formSubmit" class="wx-form">
+  <form bindsubmit="formSubmit" class="form">
     <view class="weui-cells weui-cells_after-title">
       <view class="weui-cell weui-cell_input">
         <view class="weui-cell__hd">
@@ -21,17 +22,13 @@
       <view class="weui-cells weui-cells_after-title">
         <view class="weui-cell weui-cell_input">
           <view class="weui-cell__hd">
-            <textarea name="Description" class='weui-msg__text-area' placeholder="" value="{{desc}}" placeholder-class='placeholder-class' maxlength='250' auto-height="true" style="min-height:200px;" />
+            <textarea name="Description" class='textarea' placeholder="" value="{{desc}}" placeholder-class='placeholder-class' maxlength='250' auto-height="true" style="min-height:200px;" />
           </view>
         </view>
       </view>
 
     </view>
-    <view class="weui-bar-bottom">
-      <view class="weui-btn-area" style="width:100%;">
-        <button class="submit-button" formType="submit">提交</button>
-      </view>
-    </view>
+      <button class="submit-button" formType="submit">提交</button>
 
   </form>
 

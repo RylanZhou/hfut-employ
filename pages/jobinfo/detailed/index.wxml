@@ -35,8 +35,7 @@
 		</van-cell-group>
 
 		<van-cell-group title="单位信息">
-			<!-- TODO: Inc details? -->
-      <van-cell class="highlight blue" icon="notes-o" title="单位名称" value="{{ info.company }}" is-link bindtap="jumpToCompanyPage"/>
+      <van-cell wx:if="{{ enableJump }}" class="highlight blue" icon="notes-o" title="单位名称" value="{{ info.company }}" is-link bindtap="jumpToCompanyPage"/>
       <van-cell icon="notes-o" title="单位性质" value="{{ info.unitperpory }}" />
       <van-cell icon="friends-o" title="人员规模" value="{{ info.unitsize }}" />
 			<van-cell icon="cluster-o" title="单位行业" value="{{ info.industry }}" border="{{ false }}" />

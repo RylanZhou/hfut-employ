@@ -7,17 +7,7 @@ Page({
     startX: 0, // 开始坐标
     startY: 0,
     acount: 0,
-    JobInfo: {
-      jobid: [],
-      code: [],
-      jobname: [],
-      company: [],
-      jobaddtion: [],
-      salary: [],
-      LogoUrl: [],
-      date: [],
-      isTouchMove: []
-    }
+    JobInfo: []
   },
 
   onLoad: function(option) {
@@ -31,7 +21,7 @@ Page({
 
   getFavoritesData: function() {
     const that = this
-    wx.showLoading()
+    app.toastLoading()
     wx.request({
       url:
         app.api.baseUrl +
@@ -46,49 +36,29 @@ Page({
       header: {
         'Content-Type': 'application/json'
       },
-      success: function(res) {
-        wx.stopPullDownRefresh()
-        wx.hideLoading()
-        const data = res.data.result.data
+      success(res) {
+        const { data } = res.data.result
         const len = data.length
-        if (len == 0) return
-
-        const JobInfoobj = {
-          jobid: [],
-          code: [],
-          jobname: [],
-          company: [],
-          jobaddtion: [],
-          salary: [],
-          LogoUrl: [],
-          date: [],
-          isTouchMove: []
+        if (len) {
+          that.setData({
+            acount: len,
+            JobInfo: data.map((each) => {
+              const key = `CompanylogoUrls_${each.cid}`
+              const path = wx.getStorageSync(key)
+              if (path) {
+                each.LogoUrl = path
+              } else {
+                getImageCache(key, each.LogoUrl)
+              }
+              each.isTouchMove = false
+              return each
+            })
+          })
         }
-
-        for (let i = 0; i < len; i++) {
-          JobInfoobj.code.push(data[i].code)
-          JobInfoobj.jobid.push(data[i].jobid)
-          JobInfoobj.jobname.push(data[i].jobname)
-          JobInfoobj.company.push(data[i].company)
-          JobInfoobj.jobaddtion.push(data[i].jobaddtion)
-          JobInfoobj.salary.push(data[i].salary)
-          const key = 'CompanylogoUrls_' + data[i].cid.toString()
-          const path = wx.getStorageSync(key)
-          if (path) JobInfoobj.LogoUrl.push(path)
-          else {
-            JobInfoobj.LogoUrl.push(data[i].LogoUrl)
-            getImageCache(key, data[i].LogoUrl)
-          }
-          JobInfoobj.date.push(data[i].date)
-          JobInfoobj.isTouchMove.push(false)
-        }
-
-        that.setData({
-          acount: len,
-          JobInfo: JobInfoobj
-        })
+        app.toastClear()
       },
-      fail: function(err) {
+      fail(error) {
+        console.log(error)
         app.applyfail()
       }
     })
@@ -100,11 +70,6 @@ Page({
 
   // 页面跳转
   navToPage(event) {
-    wx.showToast({
-      jobname: '加载中',
-      icon: 'loading',
-      duration: 10000
-    })
     const route = event.currentTarget.dataset.route
     wx.navigateTo({
       url: route
@@ -113,29 +78,22 @@ Page({
 
   // 手指触摸动作开始 记录起点X坐标
 
-  touchstart: function(e) {
-    const that = this
-    // 开始触摸时 重置所有删除
-    const isTouchMove = that.data.JobInfo.isTouchMove
-    isTouchMove.forEach(function(v, i) {
-      if (isTouchMove[i]) {
-        // 只操作为true的
-        isTouchMove[i] = false
-      }
-    })
-
-    const JobInfotmp = that.data.JobInfo
-    JobInfotmp.isTouchMove = isTouchMove
-    that.setData({
+  touchstart(e) {
+    this.setData({
       startX: e.changedTouches[0].clientX,
       startY: e.changedTouches[0].clientY,
-      JobInfo: JobInfotmp
+      JobInfo: this.data.JobInfo.map((each) => {
+        if (each.isTouchMove) {
+          each.isTouchMove = false
+        }
+        return each
+      })
     })
   },
 
   // 滑动事件处理
 
-  touchmove: function(e) {
+  touchmove(e) {
     const that = this
     const index = e.currentTarget.dataset.index // 当前索引
     const startX = that.data.startX // 开始X坐标
@@ -154,29 +112,16 @@ Page({
         Y: touchMoveY
       }
     )
+    if (Math.abs(angle) > 30) {
+      return
+    }
 
-    const isTouchMove = that.data.JobInfo.isTouchMove
-
-    isTouchMove.forEach(function(v, i) {
-      isTouchMove[i] = false
-
-      // 滑动超过30度角 return
-
-      if (Math.abs(angle) > 30) return
-
-      if (i == index) {
-        if (touchMoveX > startX) isTouchMove[i] = false
-        // 右滑
-        else isTouchMove[i] = true // 左滑
-      }
-    })
+    const JobInfo = [...this.data.JobInfo]
+    JobInfo[index].isTouchMove = touchMoveX <= startX
 
     // 更新数据
-
-    const JobInfotmp = that.data.JobInfo
-    JobInfotmp.isTouchMove = isTouchMove
     that.setData({
-      JobInfo: JobInfotmp
+      JobInfo
     })
   },
 
@@ -188,7 +133,7 @@ Page({
 
   // 删除事件
 
-  del: function(e) {
+  del(e) {
     const that = this
     const index = e.currentTarget.dataset.index
     wx.request({
@@ -203,27 +148,17 @@ Page({
       header: {
         'Content-Type': 'application/json'
       },
-      success: function(res) {
-        const tmp = that.data.JobInfo
-        tmp.jobid.splice(index, 1)
-        tmp.code.splice(index, 1)
-        tmp.jobname.splice(index, 1)
-        tmp.company.splice(index, 1)
-        tmp.jobaddtion.splice(index, 1)
-        tmp.salary.splice(index, 1)
-        tmp.LogoUrl.splice(index, 1)
-        tmp.date.splice(index, 1)
-        tmp.isTouchMove.splice(index, 1)
+      success() {
+        const JobInfo = [...that.data.JobInfo]
+        JobInfo.splice(index, 1)
         that.setData({
-          JobInfo: tmp
+          JobInfo
         })
-        wx.showToast({
-          icon: 'none',
-          title: '删除成功'
-        })
+        app.toastSuccess('删除成功')
       },
-      fail: function(err) {
-        app.applyfail()
+      fail(error) {
+        console.log(error)
+        app.toastFailed('删除失败')
       }
     })
   }

@@ -205,13 +205,6 @@ page {
   transform: translateX(0);
 }
 
-.none {
-  padding-top: 15rpx;
-  text-align: center;
-  background-color: transparent;
-  height: 100%;
-}
-
 .jobinfo {
   display: flex;
   padding: 0rpx;

@@ -1,5 +1,59 @@
-@import '../index.wxss';
+.page-container {
+  height: 100vh;
+  overflow: hidden;
+  background-color: #eee;
+}
 
 .content {
+  height: 1154rpx;
   margin-top: 180rpx;
+  background-color: #eee;
+}
+
+.none {
+  padding-top: 180rpx;
+  margin: 20rpx 0;
+  text-align: center;
+  color: #aaa;
+}
+
+.job-item {
+  display: flex;
+  padding: 20rpx;
+  border-bottom: 1rpx solid #eee;
+  background-color: white;
+}
+
+.job-item .image {
+  padding-right: 20rpx;
+  width: 200rpx;
+  height: 200rpx;
+}
+
+.job-item .desc {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-size: 24rpx;
+  color: #aaa;
+}
+
+.job-item .desc .title {
+  font-size: 32rpx;
+  color: #222;
+}
+
+.job-item .desc view {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.delete-block {
+  height: 100%;
+  line-height: 240rpx;
+  width: 65px;
+  text-align: center;
+  color: white;
+  background-color: rgb(218, 58, 58);
 }

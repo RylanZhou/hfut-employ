@@ -4,15 +4,15 @@
   <view class="login-form">
     <label for="name">
       <text>姓名:</text>
-      <input id="name" type="text" bind:change="handleInputChange" value="{{loginForm.name}}" />
+      <input id="name" type="text" bind:input="handleInputChange" value="{{loginForm.name}}" />
     </label>
     <label for="studentNo">
       <text>学号:</text>
-      <input id="studentNo" type="text" bind:change="handleInputChange" value="{{loginForm.studentNo}}" />
+      <input id="studentNo" type="text" bind:input="handleInputChange" value="{{loginForm.studentNo}}" />
     </label>
     <label for="idNo">
-      <text>身份证后六位:</text>
-      <input id="idNo" type="text" bind:change="handleInputChange" value="{{loginForm.idNo}}" />
+      <text>身份证:</text>
+      <input id="idNo" type="text" bind:input="handleInputChange" value="{{loginForm.idNo}}" />
     </label>
     <button class="submit-button" bind:tap="formSubmit">登录</button>
   </view>

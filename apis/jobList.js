@@ -2,7 +2,7 @@ import { get } from './helper'
 
 const BASE_URL = 'https://yun.ahbys.com/MiniAPI'
 
-export const getJobList = ({ wkind, pageindex, key }, { code, year }) =>
+export const getJobList = ({ wkind, pageindex, key }, { year, code }) =>
   get(
     `${BASE_URL}/${code}/Graduate/Activity/JobList.ashx?rand=${Math.random()}`,
     {

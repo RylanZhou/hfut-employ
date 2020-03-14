@@ -1,3 +1,5 @@
+// eslint-disable-next-line no-unused-vars
+import regeneratorRuntime from './miniprogram_npm/regenerator-runtime/index'
 import Toast from './miniprogram_npm/@vant/weapp/toast/toast'
 
 App({
@@ -93,118 +95,127 @@ App({
     Toast.clear()
   },
 
-  wxlogin() {
-    wx.login({
-      success: (res) => {
-        this.fetchopenid(res.code)
-      },
-      fail: (err) => {
-        this.toastFailed('获取数据失败')
-      },
-      complete: () => {
-        this.toastClear()
-      }
-    })
+  async wxlogin() {
+    try {
+      const code = await this.wxLoginPromise()
+      const openid = await this.fetchopenidPromise(code)
+      await this.fetctuserinfoPromise(openid)
+    } catch (error) {
+      console.log(error)
+    }
   },
 
-  fetchopenid(code) {
-    const that = this
-    const appId = that.api.appId
-    wx.request({
-      url: that.api.loginUrl + 'UserInfo.ashx?rand=' + Math.random(),
-      data: {
-        action: 'openid',
-        appid: appId,
-        js_code: code,
-        grant_typ: 'authorization_code'
-      },
-      header: {
-        'content-type': 'json'
-      },
-      success(res) {
-        console.log(res)
-        const openid = res.data.openid
-        that.fetctuserinfo(openid)
-      },
-      fail(err) {
-        wx.showToast({
-          title: '网络错误，请稍后重试2',
-          icon: 'none',
-          duration: 3000
-        })
-      },
-      complete() {}
-    })
-  },
-
-  fetctuserinfo(openid) {
-    const that = this
-    wx.request({
-      url: that.api.loginUrl + 'UserInfo.ashx?rand=' + Math.random(),
-      data: {
-        action: 'checkuser',
-        openid: openid,
-        userkind: 1
-      },
-      method: 'get',
-      header: {
-        'Content-Type': 'application/json'
-      },
-      success(res) {
-        console.log(res.data)
-        if (res.data.count == 1) {
-          // 用户已绑定
-          that.Graduate.openid = openid
-          that.Graduate.year = res.data.year
-          that.Graduate.code = res.data.code
-          that.Graduate.college = res.data.college
-          that.Graduate.gid = res.data.gid
-          that.Graduate.education = res.data.education
-          that.Graduate.discipline = res.data.discipline
-          that.Graduate.disciplineName = res.data.disciplineName
-          that.Graduate.name = res.data.name
-          that.Graduate.photo = res.data.photo
-
-          that.Graduate.jobinfo = res.data.jobinfo
-          that.Graduate.market = res.data.market
-          that.Graduate.opened = res.data.opened
-          that.Graduate.automatic = res.data.automatic
-
-          // 重新设置缓存
-          wx.setStorageSync('Graduate', that.Graduate)
-          wx.redirectTo({
-            url:
-              '/pages/binduser/index?openid=' +
-              openid +
-              '&rand=' +
-              Math.random()
-          })
-        } else if (res.data.count == 2) {
-          //  多个用户，学号重复
-          wx.showModal({
-            title: '提示',
-            content: '系统内学号重复，请联系管理员老师'
-          })
-        } else if (res.data.count == 0) {
-          // 不存在
-          // 当前用户没有注册，跳转到绑定页面
-          wx.redirectTo({
-            url:
-              '/pages/binduser/index?openid=' +
-              openid +
-              '&rand=' +
-              Math.random()
-          })
+  wxLoginPromise() {
+    return new Promise((resolve, reject) => {
+      wx.login({
+        success: (res) => {
+          resolve(res.code)
+        },
+        fail: (err) => {
+          reject(err)
+          this.toastFailed('获取数据失败')
+        },
+        complete: () => {
+          this.toastClear()
         }
-      },
-      fail(err) {
-        wx.showToast({
-          title: '网络错误，请稍后重试3',
-          icon: 'none',
-          duration: 3000
-        })
-      },
-      complete() {}
+      })
+    })
+  },
+
+  fetchopenidPromise(code) {
+    return new Promise((resolve, reject) => {
+      wx.request({
+        url: this.api.loginUrl + 'UserInfo10359.ashx?rand=' + Math.random(),
+        data: {
+          action: 'openid',
+          appid: this.api.appId,
+          js_code: code,
+          grant_typ: 'authorization_code'
+        },
+        header: {
+          'content-type': 'json'
+        },
+        success(res) {
+          resolve(res.data.openid)
+        },
+        fail(err) {
+          reject(err)
+          wx.showToast({
+            title: '网络错误，请稍后重试2',
+            icon: 'none',
+            duration: 3000
+          })
+        },
+        complete() {}
+      })
+    })
+  },
+
+  fetctuserinfoPromise(openid) {
+    const { Graduate } = this
+    return new Promise((resolve, reject) => {
+      wx.request({
+        url: this.api.loginUrl + 'UserInfo10359.ashx?rand=' + Math.random(),
+        data: {
+          action: 'checkuser',
+          openid: openid,
+          userkind: 1
+        },
+        method: 'get',
+        header: {
+          'Content-Type': 'application/json'
+        },
+        success(res) {
+          if (res.data.count == 1) {
+            // 用户已绑定
+            Graduate.openid = openid
+            Graduate.year = res.data.year
+            Graduate.code = res.data.code
+            Graduate.college = res.data.college
+            Graduate.gid = res.data.gid
+            Graduate.education = res.data.education
+            Graduate.discipline = res.data.discipline
+            Graduate.disciplineName = res.data.disciplineName
+            Graduate.name = res.data.name
+            Graduate.photo = res.data.photo
+
+            Graduate.jobinfo = res.data.jobinfo
+            Graduate.market = res.data.market
+            Graduate.opened = res.data.opened
+            Graduate.automatic = res.data.automatic
+
+            console.log(Graduate)
+            // 重新设置缓存
+            wx.setStorageSync('Graduate', Graduate)
+          } else if (res.data.count == 2) {
+            //  多个用户，学号重复
+            wx.showModal({
+              title: '提示',
+              content: '系统内学号重复，请联系管理员老师'
+            })
+          } else if (res.data.count == 0) {
+            // 不存在
+            // 当前用户没有注册，跳转到绑定页面
+            wx.redirectTo({
+              url:
+                '/pages/binduser/index?openid=' +
+                openid +
+                '&rand=' +
+                Math.random()
+            })
+          }
+          resolve()
+        },
+        fail(err) {
+          reject(err)
+          wx.showToast({
+            title: '网络错误，请稍后重试3',
+            icon: 'none',
+            duration: 3000
+          })
+        },
+        complete() {}
+      })
     })
   },
 

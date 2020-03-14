@@ -57,47 +57,22 @@ Page({
         wx.hideLoading()
         const data = res.data.result.data
         const len = data.length
-        if (len == 0) return
-
-        const JobInfoobj = {
-          id: [],
-          jobid: [],
-          code: [],
-          jobname: [],
-          company: [],
-          jobaddtion: [],
-          salary: [],
-          LogoUrl: [],
-          date: [],
-          isTouchMove: []
+        if (len !== 0) {
+          that.setData({
+            acount: len,
+            JobInfo: data.map((each) => {
+              const key = `CompanylogoUrls_${each.cid}`
+              const path = wx.getStorageSync(key)
+              if (path) {
+                each.LogoUrl = path
+              } else {
+                getImageCache(key, each.LogoUrl)
+              }
+              each.isTouchMove = false
+              return each
+            })
+          })
         }
-
-        for (let i = 0; i < len; i++) {
-          JobInfoobj.code.push(data[i].code)
-          JobInfoobj.id.push(data[i].id)
-          JobInfoobj.jobid.push(data[i].jobid)
-          JobInfoobj.jobname.push(data[i].jobname)
-          JobInfoobj.company.push(data[i].company)
-          JobInfoobj.jobaddtion.push(data[i].jobaddtion)
-          JobInfoobj.salary.push(data[i].salary)
-
-          const key = 'CompanylogoUrls_' + data[i].cid.toString()
-          const path = wx.getStorageSync(key)
-          if (path) JobInfoobj.LogoUrl.push(path)
-          else {
-            JobInfoobj.LogoUrl.push(data[i].LogoUrl)
-            getImageCache(key, data[i].LogoUrl)
-          }
-
-          JobInfoobj.date.push(data[i].date)
-          JobInfoobj.isTouchMove.push(false)
-        }
-
-        that.setData({
-          acount: len,
-          JobInfo: JobInfoobj
-        })
-        console.log(that.data)
       },
       fail: function(err) {
         app.applyfail()
@@ -107,11 +82,7 @@ Page({
 
   // 页面跳转
   navToPage(event) {
-    wx.showToast({
-      jobname: '加载中',
-      icon: 'loading',
-      duration: 10000
-    })
+    app.toastLoading()
     const route = event.currentTarget.dataset.route
     wx.navigateTo({
       url: route
@@ -209,24 +180,12 @@ Page({
         'Content-Type': 'application/json'
       },
       success: function(res) {
-        const tmp = that.data.JobInfo
-        tmp.id.splice(index, 1)
-        tmp.jobid.splice(index, 1)
-        tmp.code.splice(index, 1)
-        tmp.jobname.splice(index, 1)
-        tmp.company.splice(index, 1)
-        tmp.jobaddtion.splice(index, 1)
-        tmp.salary.splice(index, 1)
-        tmp.LogoUrl.splice(index, 1)
-        tmp.date.splice(index, 1)
-        tmp.isTouchMove.splice(index, 1)
+        const JobInfo = [...that.data.JobInfo]
+        JobInfo.splice(index, 1)
         that.setData({
-          JobInfo: tmp
+          JobInfo
         })
-        wx.showToast({
-          icon: 'none',
-          title: '删除成功'
-        })
+        app.toastSuccess('删除成功')
       },
       fail: function(err) {
         app.applyfail()

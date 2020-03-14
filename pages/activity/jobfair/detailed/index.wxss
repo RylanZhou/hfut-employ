@@ -1,0 +1,38 @@
+@import '../index.wxss';
+
+.search-form {
+  border: none;
+}
+
+.main-content {
+  margin-top: 290rpx;
+}
+
+.title {
+  position: relative;
+  z-index: 10;
+  padding: 40rpx 60rpx;
+  font-size: 40rpx;
+  text-align: center;
+  box-shadow: 0 6rpx 10rpx 5rpx #ccc;
+  background-color: white;
+}
+
+.company-list {
+  height: 854rpx;
+}
+
+.sub-title {
+  margin-top: 20rpx;
+  padding-bottom: 20rpx;
+  border-bottom: 2rpx solid #ccc;
+  text-align: center;
+  color: #aaa;
+}
+
+.prompt {
+  padding: 40rpx 0 100rpx 0;
+  color: #aaa;
+  font-size: 32rpx;
+  text-align: center;
+}

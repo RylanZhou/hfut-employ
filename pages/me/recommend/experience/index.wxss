@@ -2,4 +2,17 @@
 
 .container {
   margin-top: 180rpx;
+  padding: 0;
+}
+
+.tools {
+  margin: 0;
+}
+
+.modify,
+.del {
+  display: flex;
+  align-items: center;
+  line-height: auto;
+  height: 100%;
 }

@@ -1,4 +1,4 @@
-let app = getApp()
+const app = getApp()
 Page({
   data: {
     title: '',
@@ -84,10 +84,10 @@ Page({
       app.wxlogin()
     } else {
       // 发起一个网络请求
-      let that = this
-      let kind = option.kind
-      let jid = option.gid
-      let val = option.val
+      const that = this
+      const kind = option.kind
+      const jid = option.gid
+      const val = option.val
       this.setData({
         kind: kind
       })
@@ -164,7 +164,7 @@ Page({
   },
 
   formSubmit: function(e) {
-    let that = this
+    const that = this
     console.log(that.data.val)
     wx.request({
       url:
@@ -191,7 +191,7 @@ Page({
     })
   },
 
-  backToPage: function(e) {
+  backToPage: function() {
     wx.navigateBack()
   }
 })

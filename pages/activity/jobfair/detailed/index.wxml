@@ -1,0 +1,24 @@
+<view class="page-container">
+	<my-header title="精准就业" withBack bind:back="handleJumpBack" />
+	<view class="search-form">
+		<van-search 
+			class="search"
+			value="{{ key }}" 
+			placeholder="请输入单位名称" 
+			bind:change="keyInput"
+		/>
+		<button class="button" bindtap="search">搜索</button>
+	</view>
+
+	<view class="main-content">
+		<view class="title">{{Theme}}</view>
+		<scroll-view scroll-y="{{true}}" class="company-list" bindscrolltolower="handlePageScrollToLower">
+			<view class="sub-title">参会单位</view>
+			<van-cell-group>
+				<van-cell wx:for="{{Market}}" wx:for-item="item" data-route="/pages/jobinfo/company/index?code={{code}}&cid={{item.CompanyId}}&jump=1" wx:key="index" bindtap="navToPage" is-link title="{{item.Company}}" />
+			</van-cell-group>
+			<view class="prompt">{{Market.length < dataMarket.length ? '加载更多' : '没有更多了'}}</view>
+		</scroll-view>
+	</view>
+	<van-toast id="van-toast" />
+</view>

@@ -1,0 +1,30 @@
+<!--content-->
+<view class="page-container">
+	<my-header title="精准就业">
+		<image src="../../../assets/logo.png" />
+	</my-header>
+	<view class="search-form">
+		<van-search 
+			class="search"
+			value="{{ key }}" 
+			placeholder="请输入搜索内容" 
+			bind:change="keyInput"
+		/>
+		<button class="button" bindtap="search">搜索</button>
+	</view>
+	<view wx:if="{{acount==0}}" class="college-list">
+		<view class="none">暂无可加载内容</view>
+	</view>
+	<scroll-view scroll-y="{{true}}" class="college-list" wx:else>
+		<view class='college' wx:for="{{Market}}" wx:for-item="item" wx:key="item" data-route="detailed/index?code={{item.code}}&rid={{item.rid}}&theme={{item.theme}}" bindtap="navToPage">
+			<image class="image" src="{{item.logoUrls}}" />
+			<view class="caption">{{item.theme}}</view>
+			<view class="number">
+				<view>单位数：{{item.units}}</view>
+				<view>岗位数：{{item.jobs}}</view>
+			</view>
+			<image class="arrow" src="/assets/right-gray.png" />
+		</view>
+	</scroll-view>
+	<van-toast id="van-toast"/>
+</view>

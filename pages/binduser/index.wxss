@@ -49,8 +49,36 @@
   color: #222;
 }
 
+.login-form .checkbox {
+  display: flex;
+  align-items: center;
+  margin-bottom: 24rpx;
+  font-size: 24rpx;
+  color: #222;
+}
+
+.login-form .checkbox view {
+  line-height: 28rpx;
+}
+
+.login-form .checkbox .input {
+  margin-right: 20rpx;
+}
+
+.login-form .highlight {
+  display: inline;
+  color: #114fd4;
+}
+
 .submit-button {
   outline: none;
   border: none;
   background-color: #d3333b;
+}
+
+.protocol {
+  box-sizing: border-box;
+  height: 100%;
+  padding: 40rpx;
+  font-size: 24rpx;
 }

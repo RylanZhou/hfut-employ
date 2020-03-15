@@ -14,31 +14,36 @@
       <text>身份证:</text>
       <input id="idNo" type="text" bind:input="handleInputChange" value="{{loginForm.idNo}}" />
     </label>
+    <view class="checkbox" bind:tap="onConfirm">
+      <van-checkbox class="input" icon-size="16px" checked-color="#114fd4" value="{{ loginForm.confirmed }}" shape="square" />
+      <view>我已阅读并同意<view class="highlight" catch:tap="showProtocol">《用户服务协议》</view>和<view class="highlight" catch:tap="showProtocol">《隐私政策》</view></view>
+    </view>
     <button class="submit-button" bind:tap="formSubmit">登录</button>
   </view>
+  <van-popup show="{{ protocolVisible }}" position="bottom" custom-style="height: 50%" bind:close="closeProtocol">
+    <scroll-view scroll-y="{{true}}" class="protocol">
+      <text>
+        为了更好地为您提供服务，请您仔细阅读本“用户服务协议及隐私政策”。
+      </text>
+      <text>
+        一、本小程序旨在为合肥工业大学学生提供就业信息与简历投递相关服务。
+      </text>
+      <text>
+        二、本小程序用户仅限于合肥工业大学学生，且学生学号应当正确无误且实际有效。
+      </text>
+      <text>
+        三、本小程序信息来源于合肥工业大学重点用人单位招聘信息库。
+      </text>
+      <text>
+        四、禁止任何使用者借助本小程序以任何方式传播不良非法信息。
+      </text>
+      <text>
+        五、本小程序版权归合肥工业大学所有。
+      </text>
+      <text>
+        六、如有任何问题请联系合肥工业大学就业指导中心。联系方式：0551-62901043，邮箱：hfgdjyzx@163.com。
+      </text>
+    </scroll-view>
+  </van-popup>
   <van-toast id="van-toast" />
-  <!-- <form bindsubmit="formSubmit" class="wx-form">
-
-    <view class="weui-cells weui-cells_after-title">
-      <view class="weui-cell weui-cell_input">
-        <view class="weui-cell__bd">
-          <input name="name" class="weui-input" value="" maxlength='30' placeholder='填写姓名' style="text-align:center" />
-        </view>
-      </view>
-      <view class="weui-cell weui-cell_input">
-        <view class="weui-cell__bd">
-          <input name="studentnum" class="weui-input" value="" maxlength='30' placeholder='填写学号' style="text-align:center" />
-        </view>
-      </view>
-      <view class="weui-cell weui-cell_input">
-        <view class="weui-cell__bd">
-          <input name="idcode" type="idcard" class="weui-input" value="" maxlength='18' placeholder='填写身份证号' style="text-align:center" />
-        </view>
-      </view>
-    </view>
-    <view class="weui-btn-area">
-      <button class="submit-button" open-type="getUserInfo" formType="submit">登录</button>
-    </view>
-  </form> -->
-
 </view>

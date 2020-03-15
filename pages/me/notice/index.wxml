@@ -1,10 +1,10 @@
 <!--content-->
 <my-header title="邀请与通知" withBack bind:back="handleJumpBack" />
-<scroll-view scroll-y="true" class="content">
-  <view wx:if="{{acount==0}}">
+<scroll-view scroll-y="true" class="container">
+  <view wx:if="{{!acount}}">
     <view class="none">暂无可加载内容</view>
   </view>
-  <view wx:elif="{{acount>0}}">
+  <view wx:else>
    <view style="height:40px;line-height:40px;font-size:16px;color:red; text-align:center;display:{{jobstate}}!=''?block:none">{{jobstate}}</view>
     <view class="joblist {{JobInfo.isTouchMove[index]? 'touch-move-active' : ''}}" wx:for="{{JobInfo.jobname}}" data-route="invitation/index?id={{JobInfo.id[index]}}&jobid={{JobInfo.jobid[index]}}&cid={{JobInfo.cid[index]}}&jobname={{JobInfo.jobname[index]}}&date={{JobInfo.date[index]}}&disabled={{JobInfo.disabled[index]}}&applystate={{JobInfo.applystate[index]}}" bindtap="navToPage" data-index="{{index}}"  wx:key="navItems">
       <view class="content">

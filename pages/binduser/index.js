@@ -9,8 +9,11 @@ Page({
     loginForm: {
       name: '',
       studentNo: '',
-      idNo: ''
-    }
+      idNo: '',
+      confirmed: false
+    },
+
+    protocolVisible: false
   },
 
   onLoad: function(option) {
@@ -26,11 +29,34 @@ Page({
     })
   },
 
+  onConfirm() {
+    this.setData({
+      'loginForm.confirmed': !this.data.loginForm.confirmed
+    })
+  },
+
+  showProtocol() {
+    console.log('here')
+    this.setData({
+      protocolVisible: true
+    })
+  },
+
+  closeProtocol() {
+    this.setData({
+      protocolVisible: false
+    })
+  },
+
   // 保存数据
   formSubmit() {
-    const { name, studentNo, idNo } = this.data.loginForm
+    const { name, studentNo, idNo, confirmed } = this.data.loginForm
     if (!name || !studentNo || !idNo) {
       app.toastFailed('请补全表单')
+      return
+    }
+    if (!confirmed) {
+      app.toastFailed('请阅读并确认用户协议')
       return
     }
     wx.request({

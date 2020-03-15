@@ -53,7 +53,9 @@
     "van-cell": "@vant/weapp/cell",
     "van-cell-group": "@vant/weapp/cell-group",
     "van-image": "@vant/weapp/image",
-    "van-swipe-cell": "@vant/weapp/swipe-cell/index",
+    "van-swipe-cell": "@vant/weapp/swipe-cell",
+    "van-checkbox": "@vant/weapp/checkbox",
+    "van-popup": "@vant/weapp/popup",
     "my-header": "/components/header/index"
   },
   "tabBar": {

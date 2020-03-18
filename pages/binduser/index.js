@@ -59,6 +59,7 @@ Page({
       app.toastFailed('请阅读并确认用户协议')
       return
     }
+    app.toastLoading()
     wx.request({
       url: app.api.loginUrl + 'UserInfo10359.ashx?rand=' + Math.random(),
       data: {
